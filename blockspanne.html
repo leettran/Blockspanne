@@ -1,0 +1,1826 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Testbatterie-Aufgabe: Blockspanne</title>
+
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.0b1.min.css"/>       
+        <link rel="stylesheet" href="css/style.css" media="screen and (orientation: landscape)" type="text/css">  
+
+        <script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.0rc2.min.js"></script>
+        <script type="text/javascript" src="js/jstorage.js"></script>
+        <script type="text/javascript" src="js/blockspanneScript.js"></script>
+
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    </head>
+
+
+
+    <body>
+
+        <!--startpage for neurocare testbatterie with task: Blockspanne-->
+        <div data-role="page" id="blockspanneStart" data-dom-cache=true class="startPage" >
+
+
+            <div data-role="content">
+
+                <div class="testname">Aufgabe<br>Blockspanne</div>
+
+
+
+            </div>
+
+            <!--script used to show start page for few seconds and the to switch to intro page-->
+            <script type="text/javascript">
+
+                $(document).delegate('#blockspanneStart', 'pageshow', function() {
+
+                    function showJustForWhile() {
+                        setTimeout(function() {
+                            $.mobile.changePage('#blockspanneIntro', {transition: "flip"});
+                        }, 4000);
+
+                    }
+
+                    showJustForWhile();
+
+                });
+            </script>
+
+
+        </div> 
+
+
+        <!--intro page for neurocare testbatterie containing a small introduction to the task Blockspanne-->
+        <div data-role="page" id="blockspanneIntro" data-dom-cache=true class="introPage" >
+
+            <div data-role="content">
+
+                <image src="css\images\icons\info.png" class="infoIcon"/>
+
+                <center>
+                    <p class="introText">
+                        Gleich sehen Sie ein Spielfeld mit 9 Kreisfeldern. Nacheinander werden einige der Kreise aufleuchten. Merken Sie sich bitte die Reihenfolge. 
+                        Im Anschluss  sollen Sie die Kreise in umgekehrter Reihenfolge antippen, d.h. zuerst  soll der Kreis gewählt werden, der zuletzt aufgeleuchtet hat. 
+                        Im Laufe des Spiels steigt die Anzahl der aufleuchtenden Kreise an. 
+                        Wenn Sie die Reihenfolge nicht mehr erinnern, raten Sie bitte. 
+                        Zur Orientierung wird Ihnen unten rechts angezeigt, wie viele Kreise Sie noch antippen müssen.
+
+                    </p>
+                </center>
+
+
+                <!--only for tests! later uncomment the first line!-->
+                <image src="css\images\btns-bg\bt-weiter.png" class="defaultButton" onclick="goToDemoPage();"/>
+                <!--<image src="css\images\btns-bg\bt-weiter.png" class="defaultButton" onclick="startPicturesStoryTask();"/>-->
+            </div>
+
+
+        </div> 
+
+
+        <!--slide to demo page for neurocare testbatterie containing a demonstration example to the task blockspanne-->
+        <div data-role="page" id="slideToBlockspanneDemo" data-dom-cache=true class="introPage" >
+
+            <div data-role="content">
+
+                <image src="css\images\icons\info.png" class="infoIcon"/>
+
+                <center>
+                    <p class="introText">
+                        Achten Sie auf die aufleuchtenden Kreise und ihre Reihenfolge!
+
+                    </p>
+                </center>
+
+
+                <image src="css\images\btns-bg\bt-weiter.png" class="defaultButton" onclick="onShowDemo();"/>
+
+            </div>
+
+
+        </div> 
+
+
+        <!--first demo page-->
+        <div data-role="page" id="blockspanneDemo1" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+                <div class="centredDiv">
+
+                    <div class="kreis"  style="top: 18%;left: 10%"  >
+
+                    </div>
+                    <div class="kreis"  style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 60%" >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#blockspanneDemo1', 'pageshow', function() {
+
+                    function showJustForWhile() {
+                        setTimeout(function() {
+                            $.mobile.changePage('#blockspanneDemo2', {transition: "none"});
+                        }, 3000);
+
+                    }
+
+                    showJustForWhile();
+
+                });
+            </script>
+
+        </div>
+
+
+        <!--second demo page-->
+        <div data-role="page" id="blockspanneDemo2" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+                <div class="centredDiv">
+
+                    <div class="kreis"   style="top: 18%;left: 10%"  >
+
+                    </div>
+                    <div class="kreis"   style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreisSelected"   style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 60%" >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#blockspanneDemo2', 'pageshow', function() {
+
+                    function showJustForWhile() {
+                        setTimeout(function() {
+                            $.mobile.changePage('#blockspanneDemo3', {transition: "none"});
+                        }, 3000);
+
+                    }
+
+                    showJustForWhile();
+
+                });
+            </script>
+
+        </div>
+
+
+        <!--third demo page-->
+        <div data-role="page" id="blockspanneDemo3" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+                <div class="centredDiv">
+
+                    <div class="kreis"   style="top: 18%;left: 10%"  >
+
+                    </div>
+                    <div class="kreis"   style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 60%" >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#blockspanneDemo3', 'pageshow', function() {
+
+                    function showJustForWhile() {
+                        setTimeout(function() {
+                            $.mobile.changePage('#blockspanneDemo4', {transition: "none"});
+                        }, 3000);
+
+                    }
+
+                    showJustForWhile();
+
+                });
+            </script>
+
+        </div>
+
+
+        <!--fourth demo page-->
+        <div data-role="page" id="blockspanneDemo4" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+                <div class="centredDiv">
+
+                    <div class="kreis"   style="top: 18%;left: 10%"  >
+
+                    </div>
+                    <div class="kreisSelected"   style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 60%" >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#blockspanneDemo4', 'pageshow', function() {
+
+                    function showJustForWhile() {
+                        setTimeout(function() {
+                            $.mobile.changePage('#blockspanneDemo5', {transition: "none"});
+                        }, 3000);
+
+                    }
+
+                    showJustForWhile();
+
+                });
+            </script>
+
+        </div>
+
+
+        <!--fifth demo page-->
+        <div data-role="page" id="blockspanneDemo5" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+                <div class="centredDiv">
+
+                    <div class="kreis"   style="top: 18%;left: 10%"  >
+
+                    </div>
+                    <div class="kreis"   style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 60%" >
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#blockspanneDemo5', 'pageshow', function() {
+
+                    function showJustForWhile() {
+                        setTimeout(function() {
+                            $.mobile.changePage('#solvingDemo', {transition: "none"});
+                        }, 3000);
+
+                    }
+
+                    showJustForWhile();
+
+                });
+            </script>
+
+        </div>
+
+        <!--to start the task-->
+        <div data-role="page" id="solvingDemo" data-dom-cache=true class="introPage" >
+
+            <div data-role="content">
+
+                <image src="css\images\icons\info.png" class="infoIcon"/>
+
+                <center>
+                    <p class="introText">
+                        Später ist es Ihre Aufgabe, die Kreise in <b>umgekehrter Reihenfolge</b> anzutippen.
+
+                    </p>
+                </center>
+
+
+                <image src="css\images\btns-bg\bt-weiter.png" class="defaultButton" onclick="onShowDemoSolving();"/>
+
+            </div>
+
+
+        </div> 
+
+
+
+        <!--sixth demo page-->
+        <div data-role="page" id="blockspanneDemo6" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+                <h1 class="hintText" id="hint1"> Tippen Sie die Kreise in umgekehrter Reihenfolge an. </h1>
+
+                <div class="centredDiv">
+
+                    <div class="kreis"   style="top: 18%;left: 10%"  >
+
+                    </div>
+                    <div class="kreis"   style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 60%" >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#blockspanneDemo6', 'pageshow', function() {
+
+                    function showJustForWhile() {
+                        setTimeout(function() {
+                            $("#hitn1").hide();
+                            $.mobile.changePage('#blockspanneDemo7', {transition: "none"});
+                        }, 3000);
+
+                    }
+
+                    showJustForWhile();
+
+                });
+            </script>
+
+        </div>
+
+
+        <!--seventh demo page-->
+        <div data-role="page" id="blockspanneDemo7" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+
+                <div class="centredDiv">
+
+                    <div class="kreis"   style="top: 18%;left: 10%"  >
+
+                    </div>
+                    <div class="kreisSelected"  style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 60%" >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#blockspanneDemo7', 'pageshow', function() {
+
+                    function showJustForWhile() {
+                        setTimeout(function() {
+
+                            $.mobile.changePage('#blockspanneDemo8', {transition: "none"});
+                        }, 3000);
+
+                    }
+
+                    showJustForWhile();
+
+                });
+            </script>
+
+        </div>
+
+
+
+
+        <!--nineth demo page-->
+        <div data-role="page" id="blockspanneDemo8" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+
+                <div class="centredDiv">
+
+                    <div class="kreis"   style="top: 18%;left: 10%"  >
+
+                    </div>
+                    <div class="kreis"  style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreisSelected"   style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 60%" >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#blockspanneDemo8', 'pageshow', function() {
+
+                    function showJustForWhile() {
+                        setTimeout(function() {
+
+                            $.mobile.changePage('#bridgingPage', {transition: "none"});
+                        }, 3000);
+
+                    }
+
+                    showJustForWhile();
+
+                });
+            </script>
+
+        </div>
+
+
+
+        <!--shows a choice between starting trial or showing the example again-->
+        <div data-role="page" id="bridgingPage" data-dom-cache=true class="introPage" >
+
+            <div data-role="content">
+
+                <image src="css\images\icons\info.png" class="infoIcon"/>
+
+                <center>
+                    <p class="introTextTop">
+                        Machen Sie zunächst einen Probedurchgang.
+                    </p>
+
+                    <image src="css\images\btns-bg\bt-weiter.png" class="defaultButtonTop" onclick="onSlideToTrial();"/>
+                </center>
+
+
+                <center>
+                    <p class="introTextMiddle">
+                        Möchten Sie das Beispiel noch einmal sehen?
+                    </p>
+
+                    <image src="css\images\btns-bg\bt-weiter.png" class="defaultButtonMiddle" onclick="onShowDemo();"/>
+                </center>
+
+            </div>
+
+
+        </div> 
+
+
+        <!--slide to trial page for neurocare testbatterie containing a trial example to the task blockspanne-->
+        <div data-role="page" id="slideToBlockspanneTrial" data-dom-cache=true class="introPage" >
+
+            <div data-role="content">
+
+                <image src="css\images\icons\info.png" class="infoIcon"/>
+
+                <center>
+                    <p class="introText">
+
+                        Ein Probedurchgang. 
+                        </br>
+                        Merken Sie sich die aufleuchtenden Kreise und ihre Reihenfolge
+
+                    </p>
+                </center>
+
+
+                <image src="css\images\btns-bg\bt-weiter.png" class="defaultButton" onclick="onShowTrial();"/>
+
+            </div>
+
+
+        </div> 
+
+
+        <!--first trial page-->
+        <div data-role="page" id="blockspanneTrial1" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+
+                <div class="centredDiv">
+
+                    <div class="kreis"   style="top: 18%;left: 10%"  >
+
+                    </div>
+                    <div class="kreis"  style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 60%" >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#blockspanneTrial1', 'pageshow', function() {
+
+                    function defineCirclesToFlash() {
+                        flashedCircles = new Array("1trial", "4trial");
+                        numberOfCirclesToSelect = flashedCircles.length;
+                        setTimeout(function() {
+
+                            $.mobile.changePage('#blockspanneTrial2', {transition: "none"});
+                        }, 3000);
+                    }
+
+                    defineCirclesToFlash();
+
+                });
+            </script>
+
+        </div>
+
+
+        <!--second trial page-->
+        <div data-role="page" id="blockspanneTrial2" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+
+                <div class="centredDiv">
+
+                    <div class="kreisSelected"   style="top: 18%;left: 10%"  >
+
+                    </div>
+                    <div class="kreis"  style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 60%" >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#blockspanneTrial2', 'pageshow', function() {
+
+                    function showJustForWhile() {
+
+                        setTimeout(function() {
+
+                            $.mobile.changePage('#blockspanneTrial3', {transition: "none"});
+                        }, 3000);
+                    }
+
+                    showJustForWhile();
+
+                });
+            </script>
+
+        </div>
+
+
+        <!--third trial page-->
+        <div data-role="page" id="blockspanneTrial3" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+
+                <div class="centredDiv">
+
+                    <div class="kreis"   style="top: 18%;left: 10%"  >
+
+                    </div>
+                    <div class="kreis"  style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 60%" >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#blockspanneTrial3', 'pageshow', function() {
+
+                    function showJustForWhile() {
+
+                        setTimeout(function() {
+
+                            $.mobile.changePage('#blockspanneTrial4', {transition: "none"});
+                        }, 3000);
+                    }
+
+                    showJustForWhile();
+
+                });
+            </script>
+
+        </div>
+
+
+        <!--fourth trial page-->
+        <div data-role="page" id="blockspanneTrial4" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+
+                <div class="centredDiv">
+
+                    <div class="kreis"   style="top: 18%;left: 10%"  >
+
+                    </div>
+                    <div class="kreis"  style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreisSelected"   style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 60%" >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#blockspanneTrial4', 'pageshow', function() {
+
+                    function showJustForWhile() {
+
+                        setTimeout(function() {
+
+                            $.mobile.changePage('#blockspanneTrial5', {transition: "none"});
+                        }, 3000);
+                    }
+
+                    showJustForWhile();
+
+                });
+            </script>
+
+        </div>
+
+
+        <!--fifth trial page-->
+        <div data-role="page" id="blockspanneTrial5" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+
+                <div class="centredDiv">
+
+                    <div class="kreis"   style="top: 18%;left: 10%"  >
+
+                    </div>
+                    <div class="kreis"  style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis"  style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis"   style="top: 85%;left: 60%" >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#blockspanneTrial5', 'pageshow', function() {
+
+                    function showJustForWhile() {
+
+                        setTimeout(function() {
+
+                            $.mobile.changePage('#trialExecution1', {transition: "none"});
+                        }, 3000);
+                    }
+
+                    showJustForWhile();
+
+                });
+            </script>
+
+        </div>
+
+        <!--sixth demo page-->
+        <div data-role="page" id="trialExecution1" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+                <h1 class="hintText" id="hint2"> Tippen Sie die Kreise in umgekehrter Reihenfolge an. </h1>
+
+                <div class="centredDiv">
+
+                    <div class="kreis" id="1trial" onclick="selectCircleTrial(this);" data-category="toSelect"  style="top: 18%;left: 10%"  >
+
+                    </div>
+                    <div class="kreis" id="2trial" onclick="selectCircleTrial(this);" ata-category="toSelect"  style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="3trial" onclick="selectCircleTrial(this);" ata-category="toSelect" style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreis" id="4trial" onclick="selectCircleTrial(this);" ata-category="toSelect"  style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis" id="5trial" onclick="selectCircleTrial(this);" ata-category="toSelect" style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="6trial" onclick="selectCircleTrial(this);" ata-category="toSelect" style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis" id="7trial" onclick="selectCircleTrial(this);" ata-category="toSelect"  style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis" id="8trial" onclick="selectCircleTrial(this);" ata-category="toSelect" style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis" id="9trial" onclick="selectCircleTrial(this);" ata-category="toSelect" style="top: 85%;left: 60%" >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#trialExecution1', 'pageshow', function() {
+
+                    function showJustForWhile() {
+                        setTimeout(function() {
+
+                            $("#hint2").hide();
+
+                        }, 3000);
+
+                    }
+
+                    showJustForWhile();
+
+                });
+            </script>
+
+        </div>
+
+
+        <!--to restart the trial example-->
+        <div data-role="page" id="trialRetry" data-dom-cache=true class="introPage" >
+
+            <div data-role="content">
+
+                <image src="css\images\icons\info.png" class="infoIcon"/>
+
+                <center>
+                    <p class="introText">
+                        Sie haben leider einen Fehler gemacht! Denken Sie daran, die Blöcke in <b> umgekehrter Reihenfolge</b> anzutippen!</br>
+                        Achten Sie auch darauf, dass das Feld nach der Berührung aufleuchtet (nur dann hat das Gerät Ihre Aktion registriert).
+
+                    </p>
+                </center>
+
+
+                <image src="css\images\btns-bg\bt-weiter.png" class="defaultButton" onclick="onShowTrial();"/>
+
+            </div>
+
+
+        </div> 
+
+
+
+        <!--to start the real task-->
+        <div data-role="page" id="startTask" data-dom-cache=true class="introPage" >
+
+            <div data-role="content">
+
+                <image src="css\images\icons\info.png" class="infoIcon"/>
+
+                <center>
+                    <p class="introText">
+                        <b> Gut gemacht!</b> </br>
+                        Starten Sie nun mit der eigentlichen Aufgabe.
+
+                    </p>
+                </center>
+
+
+                <image src="css\images\btns-bg\bt-weiter.png" class="defaultButton" onclick="onShowStartHint();"/>
+
+            </div>
+
+
+        </div> 
+
+
+        <!--a hint before starting the task-->
+        <div data-role="page" id="startHint" data-dom-cache=true class="introPage" >
+
+            <div data-role="content">
+
+                <image src="css\images\icons\info.png" class="infoIcon"/>
+
+                <center>
+                    <p class="introText">
+                        <b> Merken Sie sich die aufleuchtenden Blöcke und ihre Reihenfolge!</b> </br>
+
+
+                    </p>
+                </center>
+
+
+                <image src="css\images\btns-bg\bt-weiter.png" class="defaultButton" onclick="onStartTask();"/>
+
+            </div>
+
+
+        </div> 
+
+
+        <!--task 1 page-->
+        <div data-role="page" id="task1" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+                <h1 class="hintText" id="hintTask1" >  </h1>
+
+                <div class="centredDiv">
+
+                    <div class="kreis" id="1task1" onclick="selectCircle(this);"  style="top: 18%;left: 10%" >
+
+                    </div>
+                    <div class="kreis" id="2task1" onclick="selectCircle(this);" style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="3task1" onclick="selectCircle(this);" style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreis" id="4task1" onclick="selectCircle(this);"  style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis" id="5task1" onclick="selectCircle(this);" style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="6task1" onclick="selectCircle(this);" style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis" id="7task1"  onclick="selectCircle(this);" style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis" id="8task1" onclick="selectCircle(this);" style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis" id="9task1" onclick="selectCircle(this);" style="top: 85%;left: 60%" >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#task1', 'pageshow', function() {
+
+                    function submitDataForTask() {
+
+                        var circlesToBeFlashed = new Array("2", "6");
+                         
+                        // call flashing function
+                        setTimeout(function() {
+                            
+                            flashCircles(circlesToBeFlashed, "task1", "hintTask1");
+
+                        }, 200);
+                    }
+
+                    submitDataForTask();
+
+                });
+            </script>
+
+        </div>
+        
+        
+        
+         <!--task 1 repeat page-->
+        <div data-role="page" id="task1Repeat" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+                <h1 class="hintText" id="hintTask1Repeat" >  </h1>
+
+                <div class="centredDiv">
+
+                    <div class="kreis" id="1task1Repeat" onclick="selectCircle(this);"  style="top: 18%;left: 10%" >
+
+                    </div>
+                    <div class="kreis" id="2task1Repeat" onclick="selectCircle(this);" style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="3task1Repeat" onclick="selectCircle(this);" style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreis" id="4task1Repeat" onclick="selectCircle(this);"  style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis" id="5task1Repeat" onclick="selectCircle(this);" style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="6task1Repeat" onclick="selectCircle(this);" style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis" id="7task1Repeat"  onclick="selectCircle(this);" style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis" id="8task1Repeat" onclick="selectCircle(this);" style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis" id="9task1Repeat" onclick="selectCircle(this);" style="top: 85%;left: 60%" >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#task1Repeat', 'pageshow', function() {
+
+                    function submitDataForTask() {
+
+                        var circlesToBeFlashed = new Array("5", "1");
+                         
+                        // call flashing function
+                        setTimeout(function() {
+                            
+                            flashCircles(circlesToBeFlashed, "task1Repeat", "hintTask1Repeat");
+
+                        }, 200);
+                    }
+
+                    submitDataForTask();
+
+                });
+            </script>
+
+        </div>
+         
+         
+         
+        <!--task 2 page-->
+        <div data-role="page" id="task2" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+                <h1 class="hintText" id="hintTask2" >  </h1>
+
+                <div class="centredDiv">
+
+                    <div class="kreis" id="1task2" onclick="selectCircle(this);"  style="top: 18%;left: 10%" >
+
+                    </div>
+                    <div class="kreis" id="2task2" onclick="selectCircle(this);" style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="3task2" onclick="selectCircle(this);" style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreis" id="4task2" onclick="selectCircle(this);"  style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis" id="5task2" onclick="selectCircle(this);" style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="6task2" onclick="selectCircle(this);" style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis" id="7task2"  onclick="selectCircle(this);" style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis" id="8task2" onclick="selectCircle(this);" style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis" id="9task2" onclick="selectCircle(this);" style="top: 85%;left: 60%" >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#task2', 'pageshow', function() {
+
+                    function submitDataForTask() {
+
+                        var circlesToBeFlashed = new Array("1", "8", "6");
+                         
+                        // call flashing function
+                        setTimeout(function() {
+                            
+                            flashCircles(circlesToBeFlashed, "task2", "hintTask2");
+
+                        }, 200);
+                    }
+
+                    submitDataForTask();
+
+                });
+            </script>
+
+        </div>
+        
+        
+        <!--task 2 repeat page-->
+        <div data-role="page" id="task2Repeat" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+                <h1 class="hintText" id="hintTask2Repeat" >  </h1>
+
+                <div class="centredDiv">
+
+                    <div class="kreis" id="1task2Repeat" onclick="selectCircle(this);"  style="top: 18%;left: 10%" >
+
+                    </div>
+                    <div class="kreis" id="2task2Repeat" onclick="selectCircle(this);" style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="3task2Repeat" onclick="selectCircle(this);" style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreis" id="4task2Repeat" onclick="selectCircle(this);"  style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis" id="5task2Repeat" onclick="selectCircle(this);" style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="6task2Repeat" onclick="selectCircle(this);" style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis" id="7task2Repeat"  onclick="selectCircle(this);" style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis" id="8task2Repeat" onclick="selectCircle(this);" style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis" id="9task2Repeat" onclick="selectCircle(this);" style="top: 85%;left: 60%" >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#task2Repeat', 'pageshow', function() {
+
+                    function submitDataForTask() {
+
+                        var circlesToBeFlashed = new Array("4", "7","9");
+                         
+                        // call flashing function
+                        setTimeout(function() {
+                            
+                            flashCircles(circlesToBeFlashed, "task2Repeat", "hintTask2Repeat");
+
+                        }, 200);
+                    }
+
+                    submitDataForTask();
+
+                });
+            </script>
+
+        </div>
+        
+        
+        
+        <!--task 3 page-->
+        <div data-role="page" id="task3" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+                <h1 class="hintText" id="hintTask3" >  </h1>
+
+                <div class="centredDiv">
+
+                    <div class="kreis" id="1task3" onclick="selectCircle(this);"  style="top: 18%;left: 10%" >
+
+                    </div>
+                    <div class="kreis" id="2task3" onclick="selectCircle(this);" style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="3task3" onclick="selectCircle(this);" style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreis" id="4task3" onclick="selectCircle(this);"  style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis" id="5task3" onclick="selectCircle(this);" style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="6task3" onclick="selectCircle(this);" style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis" id="7task3"  onclick="selectCircle(this);" style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis" id="8task3" onclick="selectCircle(this);" style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis" id="9task3" onclick="selectCircle(this);" style="top: 85%;left: 60%" >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#task3', 'pageshow', function() {
+
+                    function submitDataForTask() {
+
+                        var circlesToBeFlashed = new Array("3", "8", "6", "9");
+                         
+                        // call flashing function
+                        setTimeout(function() {
+                            
+                            flashCircles(circlesToBeFlashed, "task3", "hintTask3");
+
+                        }, 200);
+                    }
+
+                    submitDataForTask();
+
+                });
+            </script>
+
+        </div>
+        
+        
+        <!--task 3 repeat page-->
+        <div data-role="page" id="task3Repeat" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+                <h1 class="hintText" id="hintTask3Repeat" >  </h1>
+
+                <div class="centredDiv">
+
+                    <div class="kreis" id="1task3Repeat" onclick="selectCircle(this);"  style="top: 18%;left: 10%" >
+
+                    </div>
+                    <div class="kreis" id="2task3Repeat" onclick="selectCircle(this);" style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="3task3Repeat" onclick="selectCircle(this);" style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreis" id="4task3Repeat" onclick="selectCircle(this);"  style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis" id="5task3Repeat" onclick="selectCircle(this);" style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="6task3Repeat" onclick="selectCircle(this);" style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis" id="7task3Repeat"  onclick="selectCircle(this);" style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis" id="8task3Repeat" onclick="selectCircle(this);" style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis" id="9task3Repeat" onclick="selectCircle(this);" style="top: 85%;left: 60%" >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#task3Repeat', 'pageshow', function() {
+
+                    function submitDataForTask() {
+
+                        var circlesToBeFlashed = new Array("1", "4", "7","2");
+                         
+                        // call flashing function
+                        setTimeout(function() {
+                            
+                            flashCircles(circlesToBeFlashed, "task3Repeat", "hintTask3Repeat");
+
+                        }, 200);
+                    }
+
+                    submitDataForTask();
+
+                });
+            </script>
+
+        </div>
+        
+        
+        
+        <!--task 4 page-->
+        <div data-role="page" id="task4" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+                <h1 class="hintText" id="hintTask4" >  </h1>
+
+                <div class="centredDiv">
+
+                    <div class="kreis" id="1task4" onclick="selectCircle(this);"  style="top: 18%;left: 10%" >
+
+                    </div>
+                    <div class="kreis" id="2task4" onclick="selectCircle(this);" style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="3task4" onclick="selectCircle(this);" style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreis" id="4task4" onclick="selectCircle(this);"  style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis" id="5task4" onclick="selectCircle(this);" style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="6task4" onclick="selectCircle(this);" style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis" id="7task4"  onclick="selectCircle(this);" style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis" id="8task4" onclick="selectCircle(this);" style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis" id="9task4" onclick="selectCircle(this);" style="top: 85%;left: 60%" >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#task4', 'pageshow', function() {
+
+                    function submitDataForTask() {
+
+                        var circlesToBeFlashed = new Array("2", "3", "5", "6", "4");
+                         
+                        // call flashing function
+                        setTimeout(function() {
+                            
+                            flashCircles(circlesToBeFlashed, "task4", "hintTask4");
+
+                        }, 200);
+                    }
+
+                    submitDataForTask();
+
+                });
+            </script>
+
+        </div>
+        
+        
+        <!--task 4 repeat page-->
+        <div data-role="page" id="task4Repeat" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+                <h1 class="hintText" id="hintTask4Repeat" >  </h1>
+
+                <div class="centredDiv">
+
+                    <div class="kreis" id="1task4Repeat" onclick="selectCircle(this);"  style="top: 18%;left: 10%" >
+
+                    </div>
+                    <div class="kreis" id="2task4Repeat" onclick="selectCircle(this);" style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="3task4Repeat" onclick="selectCircle(this);" style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreis" id="4task4Repeat" onclick="selectCircle(this);"  style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis" id="5task4Repeat" onclick="selectCircle(this);" style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="6task4Repeat" onclick="selectCircle(this);" style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis" id="7task4Repeat"  onclick="selectCircle(this);" style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis" id="8task4Repeat" onclick="selectCircle(this);" style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis" id="9task4Repeat" onclick="selectCircle(this);" style="top: 85%;left: 60%" >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#task4Repeat', 'pageshow', function() {
+
+                    function submitDataForTask() {
+
+                        var circlesToBeFlashed = new Array("7", "9","3", "2", "1");
+                         
+                        // call flashing function
+                        setTimeout(function() {
+                            
+                            flashCircles(circlesToBeFlashed, "task4Repeat", "hintTask4Repeat");
+
+                        }, 200);
+                    }
+
+                    submitDataForTask();
+
+                });
+            </script>
+
+        </div>
+        
+        
+        <!--task 5 page-->
+        <div data-role="page" id="task5" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+                <h1 class="hintText" id="hintTask5" >  </h1>
+
+                <div class="centredDiv">
+
+                    <div class="kreis" id="1task5" onclick="selectCircle(this);"  style="top: 18%;left: 10%" >
+
+                    </div>
+                    <div class="kreis" id="2task5" onclick="selectCircle(this);" style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="3task5" onclick="selectCircle(this);" style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreis" id="4task5" onclick="selectCircle(this);"  style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis" id="5task5" onclick="selectCircle(this);" style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="6task5" onclick="selectCircle(this);" style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis" id="7task5"  onclick="selectCircle(this);" style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis" id="8task5" onclick="selectCircle(this);" style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis" id="9task5" onclick="selectCircle(this);" style="top: 85%;left: 60%" >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#task5', 'pageshow', function() {
+
+                    function submitDataForTask() {
+
+                        var circlesToBeFlashed = new Array("4", "7", "9", "3", "5", "8");
+                         
+                        // call flashing function
+                        setTimeout(function() {
+                            
+                            flashCircles(circlesToBeFlashed, "task5", "hintTask5");
+
+                        }, 200);
+                    }
+
+                    submitDataForTask();
+
+                });
+            </script>
+
+        </div>
+        
+        
+        <!--task 2 repeat page-->
+        <div data-role="page" id="task5Repeat" data-dom-cache=true class="whitePage">
+
+            <div data-role="content">
+
+                <h1 class="hintText" id="hintTask5Repeat" >  </h1>
+
+                <div class="centredDiv">
+
+                    <div class="kreis" id="1task5Repeat" onclick="selectCircle(this);"  style="top: 18%;left: 10%" >
+
+                    </div>
+                    <div class="kreis" id="2task5Repeat" onclick="selectCircle(this);" style="top: 12%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="3task5Repeat" onclick="selectCircle(this);" style="top: 15%;left: 70%" >
+
+                    </div>
+                    <div class="kreis" id="4task5Repeat" onclick="selectCircle(this);"  style="top: 45%;left: 2%" >
+
+                    </div>
+                    <div class="kreis" id="5task5Repeat" onclick="selectCircle(this);" style="top: 40%;left: 50%" >
+
+                    </div>
+                    <div class="kreis" id="6task5Repeat" onclick="selectCircle(this);" style="top: 65%;left: 75%" >
+
+                    </div>
+                    <div class="kreis" id="7task5Repeat"  onclick="selectCircle(this);" style="top: 85%;left: 8%" >
+
+                    </div>
+                    <div class="kreis" id="8task5Repeat" onclick="selectCircle(this);" style="top: 65%;left: 30%" >
+
+                    </div>
+                    <div class="kreis" id="9task5Repeat" onclick="selectCircle(this);" style="top: 85%;left: 60%" >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                $(document).delegate('#task5Repeat', 'pageshow', function() {
+
+                    function submitDataForTask() {
+
+                        var circlesToBeFlashed = new Array("5", "6","8", "4", "1", "7");
+                         
+                        // call flashing function
+                        setTimeout(function() {
+                            
+                            flashCircles(circlesToBeFlashed, "task5Repeat", "hintTask5Repeat");
+
+                        }, 200);
+                    }
+
+                    submitDataForTask();
+
+                });
+            </script>
+
+        </div>
+        
+        
+        
+        
+        
+        
+        <!--end page of the task bildergeschichte-->
+        <div data-role="page" id="endPage" data-dom-cache=true class="introPage" >
+
+            <div data-role="content">
+
+                <image src="css\images\icons\tipp.png" class="infoIcon"/>
+
+                <center>
+                    <h1 class="taskEndText">Diese Aufgabe haben Sie geschafft!</h1>
+
+                </center>
+
+
+                <image src="css\images\btns-bg\bt-weiter.png" class="defaultButton" />
+
+            </div>
+
+
+        </div> 
+
+
+    </body>
+</html>
