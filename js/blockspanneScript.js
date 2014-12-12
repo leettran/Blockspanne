@@ -153,6 +153,8 @@ function flashCircles(circlesArray, taskId, taskHintId) {
                         // show hint text
                         $("#" + taskHintId).html("Tippen Sie die Kreise in umgekehrter Reihenfolge an.");
                         $("#" + taskHintId).show("slow");
+                        // show counter
+                        $(".restCirclesCounter").show();
 
                     }, 1500);
 
@@ -162,7 +164,7 @@ function flashCircles(circlesArray, taskId, taskHintId) {
                         canSelect = true;
                     }, 4500);
                 }
-            }, 1500)
+            }, 1500);
         }
 
         loopIntoarray();
@@ -195,6 +197,9 @@ function selectCircle(selectedCircle) {
             highlightClickedCircle(circleId);
             // clean other selection
             cleanPreviousSelection(circleId);
+            
+            // decrement rest circles counter
+        decrementRestCirclesCounter();
 
             // check if number of circles to be selected is reached
             if (numberOfSelectedCircles === numberOfCirclesToSelect) {
@@ -320,6 +325,21 @@ function switchToNextTask(currentPageID) {
 }
 
 
+
+// decrements rest circles counter
+function decrementRestCirclesCounter(){
+    
+    try
+    {
+        var restCircles = numberOfCirclesToSelect - numberOfSelectedCircles;
+       $(".restCirclesCounter").html("Noch " + restCircles + " Kreis(e)"); 
+    }
+    
+    catch (error) {
+        console.log("An error has been occured! " + error);
+    }
+}
+
 // called when a circle is selected on the trial example
 function selectCircleTrial(selectedCircle) {
 
@@ -337,6 +357,9 @@ function selectCircleTrial(selectedCircle) {
         highlightClickedCircle(circleId);
         // clean other selection
         cleanPreviousSelectionTrial(circleId);
+        
+        // decrement rest circles counter
+        decrementRestCirclesCounter();
 
 
         // check if number of circles to be selected is reached

@@ -158,7 +158,7 @@ and open the template in the editor.
                     function showJustForWhile() {
                         setTimeout(function() {
                             $.mobile.changePage('#blockspanneDemo2', {transition: "none"});
-                        }, 3000);
+                        }, 1500);
 
                     }
 
@@ -217,7 +217,7 @@ and open the template in the editor.
                     function showJustForWhile() {
                         setTimeout(function() {
                             $.mobile.changePage('#blockspanneDemo3', {transition: "none"});
-                        }, 3000);
+                        }, 1500);
 
                     }
 
@@ -276,7 +276,7 @@ and open the template in the editor.
                     function showJustForWhile() {
                         setTimeout(function() {
                             $.mobile.changePage('#blockspanneDemo4', {transition: "none"});
-                        }, 3000);
+                        }, 1500);
 
                     }
 
@@ -335,7 +335,7 @@ and open the template in the editor.
                     function showJustForWhile() {
                         setTimeout(function() {
                             $.mobile.changePage('#blockspanneDemo5', {transition: "none"});
-                        }, 3000);
+                        }, 1500);
 
                     }
 
@@ -395,7 +395,7 @@ and open the template in the editor.
                     function showJustForWhile() {
                         setTimeout(function() {
                             $.mobile.changePage('#solvingDemo', {transition: "none"});
-                        }, 3000);
+                        }, 1500);
 
                     }
 
@@ -411,7 +411,7 @@ and open the template in the editor.
 
             <div data-role="content">
 
-                <image src="css\images\icons\info.png" class="infoIcon"/>
+                <image src="css\images\icons\tipp.png" class="infoIcon"/>
 
                 <center>
                     <p class="introText">
@@ -481,7 +481,7 @@ and open the template in the editor.
                         setTimeout(function() {
                             $("#hitn1").hide();
                             $.mobile.changePage('#blockspanneDemo7', {transition: "none"});
-                        }, 3000);
+                        }, 1500);
 
                     }
 
@@ -543,7 +543,7 @@ and open the template in the editor.
                         setTimeout(function() {
 
                             $.mobile.changePage('#blockspanneDemo8', {transition: "none"});
-                        }, 3000);
+                        }, 1500);
 
                     }
 
@@ -607,7 +607,7 @@ and open the template in the editor.
                         setTimeout(function() {
 
                             $.mobile.changePage('#bridgingPage', {transition: "none"});
-                        }, 3000);
+                        }, 1500);
 
                     }
 
@@ -625,7 +625,7 @@ and open the template in the editor.
 
             <div data-role="content">
 
-                <image src="css\images\icons\info.png" class="infoIcon"/>
+                <image src="css\images\icons\tipp.png" class="infoIcon"/>
 
                 <center>
                     <p class="introTextTop">
@@ -714,6 +714,8 @@ and open the template in the editor.
 
 
                 </div>
+                
+                
 
             </div>
 
@@ -728,7 +730,7 @@ and open the template in the editor.
                         setTimeout(function() {
 
                             $.mobile.changePage('#blockspanneTrial2', {transition: "none"});
-                        }, 3000);
+                        }, 1500);
                     }
 
                     defineCirclesToFlash();
@@ -790,7 +792,7 @@ and open the template in the editor.
                         setTimeout(function() {
 
                             $.mobile.changePage('#blockspanneTrial3', {transition: "none"});
-                        }, 3000);
+                        }, 1500);
                     }
 
                     showJustForWhile();
@@ -852,7 +854,7 @@ and open the template in the editor.
                         setTimeout(function() {
 
                             $.mobile.changePage('#blockspanneTrial4', {transition: "none"});
-                        }, 3000);
+                        }, 1500);
                     }
 
                     showJustForWhile();
@@ -914,7 +916,7 @@ and open the template in the editor.
                         setTimeout(function() {
 
                             $.mobile.changePage('#blockspanneTrial5', {transition: "none"});
-                        }, 3000);
+                        }, 1500);
                     }
 
                     showJustForWhile();
@@ -976,7 +978,7 @@ and open the template in the editor.
                         setTimeout(function() {
 
                             $.mobile.changePage('#trialExecution1', {transition: "none"});
-                        }, 3000);
+                        }, 1500);
                     }
 
                     showJustForWhile();
@@ -1025,6 +1027,9 @@ and open the template in the editor.
 
 
                 </div>
+                
+                <!--counter of rest circles-->
+                <div class="restCirclesCounter"> Noch 2 Kreis(e)</div>
 
             </div>
 
@@ -1038,7 +1043,7 @@ and open the template in the editor.
 
                             $("#hint2").hide();
 
-                        }, 3000);
+                        }, 1500);
 
                     }
 
@@ -1055,7 +1060,7 @@ and open the template in the editor.
 
             <div data-role="content">
 
-                <image src="css\images\icons\info.png" class="infoIcon"/>
+                <image src="css\images\icons\tipp.png" class="infoIcon"/>
 
                 <center>
                     <p class="introText">
@@ -1080,7 +1085,7 @@ and open the template in the editor.
 
             <div data-role="content">
 
-                <image src="css\images\icons\info.png" class="infoIcon"/>
+                <image src="css\images\icons\tipp.png" class="infoIcon"/>
 
                 <center>
                     <p class="introText">
@@ -1162,6 +1167,9 @@ and open the template in the editor.
 
 
                 </div>
+                
+                <!--counter of rest circles-->
+                <div class="restCirclesCounter"> Noch 2 Kreis(e)</div>
 
             </div>
 
@@ -1173,6 +1181,9 @@ and open the template in the editor.
                     function submitDataForTask() {
 
                         var circlesToBeFlashed = new Array("2", "6");
+                        // set hide counter
+                        $(".restCirclesCounter").hide();
+                        $(".restCirclesCounter").html("Noch 2 Kreis(e)");
                          
                         // call flashing function
                         setTimeout(function() {
@@ -1230,6 +1241,9 @@ and open the template in the editor.
 
 
                 </div>
+                
+                <!--counter of rest circles-->
+                <div class="restCirclesCounter"> Noch 2 Kreis(e)</div>
 
             </div>
 
@@ -1241,7 +1255,9 @@ and open the template in the editor.
                     function submitDataForTask() {
 
                         var circlesToBeFlashed = new Array("5", "1");
-                         
+                        // set hide counter
+                         $(".restCirclesCounter").hide();
+                         $(".restCirclesCounter").html("Noch 2 Kreis(e)");
                         // call flashing function
                         setTimeout(function() {
                             
@@ -1298,6 +1314,9 @@ and open the template in the editor.
 
 
                 </div>
+                
+                <!--counter of rest circles-->
+                <div class="restCirclesCounter"> Noch 3 Kreis(e)</div>
 
             </div>
 
@@ -1309,7 +1328,9 @@ and open the template in the editor.
                     function submitDataForTask() {
 
                         var circlesToBeFlashed = new Array("1", "8", "6");
-                         
+                        // set hide counter
+                        $(".restCirclesCounter").hide();
+                         $(".restCirclesCounter").html("Noch 3 Kreis(e)");
                         // call flashing function
                         setTimeout(function() {
                             
@@ -1365,6 +1386,9 @@ and open the template in the editor.
 
 
                 </div>
+                
+                <!--counter of rest circles-->
+                <div class="restCirclesCounter"> Noch 3 Kreis(e)</div>
 
             </div>
 
@@ -1376,7 +1400,9 @@ and open the template in the editor.
                     function submitDataForTask() {
 
                         var circlesToBeFlashed = new Array("4", "7","9");
-                         
+                        // set hide counter
+                        $(".restCirclesCounter").hide();
+                         $(".restCirclesCounter").html("Noch 3 Kreis(e)");
                         // call flashing function
                         setTimeout(function() {
                             
@@ -1433,6 +1459,9 @@ and open the template in the editor.
 
 
                 </div>
+                
+                <!--counter of rest circles-->
+                <div class="restCirclesCounter"> Noch 4 Kreis(e)</div>
 
             </div>
 
@@ -1444,7 +1473,9 @@ and open the template in the editor.
                     function submitDataForTask() {
 
                         var circlesToBeFlashed = new Array("3", "8", "6", "9");
-                         
+                        // set hide counter
+                        $(".restCirclesCounter").hide();
+                         $(".restCirclesCounter").html("Noch 4 Kreis(e)");
                         // call flashing function
                         setTimeout(function() {
                             
@@ -1500,6 +1531,9 @@ and open the template in the editor.
 
 
                 </div>
+                
+                <!--counter of rest circles-->
+                <div class="restCirclesCounter"> Noch 4 Kreis(e)</div>
 
             </div>
 
@@ -1511,7 +1545,9 @@ and open the template in the editor.
                     function submitDataForTask() {
 
                         var circlesToBeFlashed = new Array("1", "4", "7","2");
-                         
+                        // set hide counter
+                        $(".restCirclesCounter").hide();
+                         $(".restCirclesCounter").html("Noch 4 Kreis(e)");
                         // call flashing function
                         setTimeout(function() {
                             
@@ -1568,6 +1604,9 @@ and open the template in the editor.
 
 
                 </div>
+                
+                <!--counter of rest circles-->
+                <div class="restCirclesCounter"> Noch 5 Kreis(e)</div>
 
             </div>
 
@@ -1579,7 +1618,9 @@ and open the template in the editor.
                     function submitDataForTask() {
 
                         var circlesToBeFlashed = new Array("2", "3", "5", "6", "4");
-                         
+                        // set hide counter
+                        $(".restCirclesCounter").hide();
+                         $(".restCirclesCounter").html("Noch 5 Kreis(e)");
                         // call flashing function
                         setTimeout(function() {
                             
@@ -1635,6 +1676,9 @@ and open the template in the editor.
 
 
                 </div>
+                
+                <!--counter of rest circles-->
+                <div class="restCirclesCounter"> Noch 5 Kreis(e)</div>
 
             </div>
 
@@ -1646,7 +1690,9 @@ and open the template in the editor.
                     function submitDataForTask() {
 
                         var circlesToBeFlashed = new Array("7", "9","3", "2", "1");
-                         
+                        // set hide counter
+                        $(".restCirclesCounter").hide();
+                         $(".restCirclesCounter").html("Noch 5 Kreis(e)");
                         // call flashing function
                         setTimeout(function() {
                             
@@ -1702,6 +1748,9 @@ and open the template in the editor.
 
 
                 </div>
+                
+                <!--counter of rest circles-->
+                <div class="restCirclesCounter"> Noch 6 Kreis(e)</div>
 
             </div>
 
@@ -1713,7 +1762,9 @@ and open the template in the editor.
                     function submitDataForTask() {
 
                         var circlesToBeFlashed = new Array("4", "7", "9", "3", "5", "8");
-                         
+                        // set hide counter
+                        $(".restCirclesCounter").hide();
+                         $(".restCirclesCounter").html("Noch 6 Kreis(e)");
                         // call flashing function
                         setTimeout(function() {
                             
@@ -1769,6 +1820,9 @@ and open the template in the editor.
 
 
                 </div>
+                
+                <!--counter of rest circles-->
+                <div class="restCirclesCounter"> Noch 6 Kreis(e)</div>
 
             </div>
 
@@ -1780,7 +1834,9 @@ and open the template in the editor.
                     function submitDataForTask() {
 
                         var circlesToBeFlashed = new Array("5", "6","8", "4", "1", "7");
-                         
+                        // set hide counter
+                        $(".restCirclesCounter").hide();
+                         $(".restCirclesCounter").html("Noch 6 Kreis(e)");
                         // call flashing function
                         setTimeout(function() {
                             
