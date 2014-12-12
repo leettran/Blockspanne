@@ -50,6 +50,15 @@ and open the template in the editor.
                         }, 4000);
 
                     }
+                    
+                    // this event allows only click the circle one time
+                    $("div[data-group*='interactivCircleTrial']").one("tap", function() {
+                    selectCircleTrial(this);
+                });
+                // this event will interact faster than onclick
+                $("div[data-group*='interactivCircle']").one("tap", function() {
+                    selectCircle(this);
+                });
 
                     showJustForWhile();
 
@@ -997,31 +1006,31 @@ and open the template in the editor.
 
                 <div class="centredDiv">
 
-                    <div class="kreis" id="1trial" onclick="selectCircleTrial(this);" data-category="toSelect"  style="top: 18%;left: 10%"  >
+                    <div class="kreis" id="1trial" data-group="interactivCircleTrial"  data-category="toSelect"  style="top: 18%;left: 10%"  >
 
                     </div>
-                    <div class="kreis" id="2trial" onclick="selectCircleTrial(this);" ata-category="toSelect"  style="top: 12%;left: 50%" >
+                    <div class="kreis" id="2trial" data-group="interactivCircleTrial"  data-category="toSelect"  style="top: 12%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="3trial" onclick="selectCircleTrial(this);" ata-category="toSelect" style="top: 15%;left: 70%" >
+                    <div class="kreis" id="3trial" data-group="interactivCircleTrial"  data-category="toSelect" style="top: 15%;left: 70%" >
 
                     </div>
-                    <div class="kreis" id="4trial" onclick="selectCircleTrial(this);" ata-category="toSelect"  style="top: 45%;left: 2%" >
+                    <div class="kreis" id="4trial" data-group="interactivCircleTrial"  data-category="toSelect"  style="top: 45%;left: 2%" >
 
                     </div>
-                    <div class="kreis" id="5trial" onclick="selectCircleTrial(this);" ata-category="toSelect" style="top: 40%;left: 50%" >
+                    <div class="kreis" id="5trial" data-group="interactivCircleTrial"  data-category="toSelect" style="top: 40%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="6trial" onclick="selectCircleTrial(this);" ata-category="toSelect" style="top: 65%;left: 75%" >
+                    <div class="kreis" id="6trial" data-group="interactivCircleTrial"  data-category="toSelect" style="top: 65%;left: 75%" >
 
                     </div>
-                    <div class="kreis" id="7trial" onclick="selectCircleTrial(this);" ata-category="toSelect"  style="top: 85%;left: 8%" >
+                    <div class="kreis" id="7trial" data-group="interactivCircleTrial"  data-category="toSelect"  style="top: 85%;left: 8%" >
 
                     </div>
-                    <div class="kreis" id="8trial" onclick="selectCircleTrial(this);" ata-category="toSelect" style="top: 65%;left: 30%" >
+                    <div class="kreis" id="8trial" data-group="interactivCircleTrial"  data-category="toSelect" style="top: 65%;left: 30%" >
 
                     </div>
-                    <div class="kreis" id="9trial" onclick="selectCircleTrial(this);" ata-category="toSelect" style="top: 85%;left: 60%" >
+                    <div class="kreis" id="9trial" data-group="interactivCircleTrial"  data-category="toSelect" style="top: 85%;left: 60%" >
 
                     </div>
 
@@ -1042,6 +1051,7 @@ and open the template in the editor.
                         setTimeout(function() {
 
                             $("#hint2").hide();
+                            $(".restCirclesCounter").html("Noch 2 Kreis(e)");
 
                         }, 1500);
 
@@ -1137,31 +1147,31 @@ and open the template in the editor.
 
                 <div class="centredDiv">
 
-                    <div class="kreis" id="1task1" onclick="selectCircle(this);"  style="top: 18%;left: 10%" >
+                    <div class="kreis" id="1task1" data-group="interactivCircle"  style="top: 18%;left: 10%" >
 
                     </div>
-                    <div class="kreis" id="2task1" onclick="selectCircle(this);" style="top: 12%;left: 50%" >
+                    <div class="kreis" id="2task1" data-group="interactivCircle" style="top: 12%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="3task1" onclick="selectCircle(this);" style="top: 15%;left: 70%" >
+                    <div class="kreis" id="3task1" data-group="interactivCircle" style="top: 15%;left: 70%" >
 
                     </div>
-                    <div class="kreis" id="4task1" onclick="selectCircle(this);"  style="top: 45%;left: 2%" >
+                    <div class="kreis" id="4task1" data-group="interactivCircle"  style="top: 45%;left: 2%" >
 
                     </div>
-                    <div class="kreis" id="5task1" onclick="selectCircle(this);" style="top: 40%;left: 50%" >
+                    <div class="kreis" id="5task1" data-group="interactivCircle" style="top: 40%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="6task1" onclick="selectCircle(this);" style="top: 65%;left: 75%" >
+                    <div class="kreis" id="6task1" data-group="interactivCircle" style="top: 65%;left: 75%" >
 
                     </div>
-                    <div class="kreis" id="7task1"  onclick="selectCircle(this);" style="top: 85%;left: 8%" >
+                    <div class="kreis" id="7task1"  data-group="interactivCircle" style="top: 85%;left: 8%" >
 
                     </div>
-                    <div class="kreis" id="8task1" onclick="selectCircle(this);" style="top: 65%;left: 30%" >
+                    <div class="kreis" id="8task1" data-group="interactivCircle" style="top: 65%;left: 30%" >
 
                     </div>
-                    <div class="kreis" id="9task1" onclick="selectCircle(this);" style="top: 85%;left: 60%" >
+                    <div class="kreis" id="9task1" data-group="interactivCircle" style="top: 85%;left: 60%" >
 
                     </div>
 
@@ -1211,31 +1221,31 @@ and open the template in the editor.
 
                 <div class="centredDiv">
 
-                    <div class="kreis" id="1task1Repeat" onclick="selectCircle(this);"  style="top: 18%;left: 10%" >
+                    <div class="kreis" id="1task1Repeat" data-group="interactivCircle"  style="top: 18%;left: 10%" >
 
                     </div>
-                    <div class="kreis" id="2task1Repeat" onclick="selectCircle(this);" style="top: 12%;left: 50%" >
+                    <div class="kreis" id="2task1Repeat" data-group="interactivCircle" style="top: 12%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="3task1Repeat" onclick="selectCircle(this);" style="top: 15%;left: 70%" >
+                    <div class="kreis" id="3task1Repeat" data-group="interactivCircle" style="top: 15%;left: 70%" >
 
                     </div>
-                    <div class="kreis" id="4task1Repeat" onclick="selectCircle(this);"  style="top: 45%;left: 2%" >
+                    <div class="kreis" id="4task1Repeat" data-group="interactivCircle"  style="top: 45%;left: 2%" >
 
                     </div>
-                    <div class="kreis" id="5task1Repeat" onclick="selectCircle(this);" style="top: 40%;left: 50%" >
+                    <div class="kreis" id="5task1Repeat" data-group="interactivCircle" style="top: 40%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="6task1Repeat" onclick="selectCircle(this);" style="top: 65%;left: 75%" >
+                    <div class="kreis" id="6task1Repeat" data-group="interactivCircle" style="top: 65%;left: 75%" >
 
                     </div>
-                    <div class="kreis" id="7task1Repeat"  onclick="selectCircle(this);" style="top: 85%;left: 8%" >
+                    <div class="kreis" id="7task1Repeat"  data-group="interactivCircle" style="top: 85%;left: 8%" >
 
                     </div>
-                    <div class="kreis" id="8task1Repeat" onclick="selectCircle(this);" style="top: 65%;left: 30%" >
+                    <div class="kreis" id="8task1Repeat" data-group="interactivCircle" style="top: 65%;left: 30%" >
 
                     </div>
-                    <div class="kreis" id="9task1Repeat" onclick="selectCircle(this);" style="top: 85%;left: 60%" >
+                    <div class="kreis" id="9task1Repeat" data-group="interactivCircle" style="top: 85%;left: 60%" >
 
                     </div>
 
@@ -1284,31 +1294,31 @@ and open the template in the editor.
 
                 <div class="centredDiv">
 
-                    <div class="kreis" id="1task2" onclick="selectCircle(this);"  style="top: 18%;left: 10%" >
+                    <div class="kreis" id="1task2" data-group="interactivCircle"  style="top: 18%;left: 10%" >
 
                     </div>
-                    <div class="kreis" id="2task2" onclick="selectCircle(this);" style="top: 12%;left: 50%" >
+                    <div class="kreis" id="2task2" data-group="interactivCircle" style="top: 12%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="3task2" onclick="selectCircle(this);" style="top: 15%;left: 70%" >
+                    <div class="kreis" id="3task2" data-group="interactivCircle" style="top: 15%;left: 70%" >
 
                     </div>
-                    <div class="kreis" id="4task2" onclick="selectCircle(this);"  style="top: 45%;left: 2%" >
+                    <div class="kreis" id="4task2" data-group="interactivCircle"  style="top: 45%;left: 2%" >
 
                     </div>
-                    <div class="kreis" id="5task2" onclick="selectCircle(this);" style="top: 40%;left: 50%" >
+                    <div class="kreis" id="5task2" data-group="interactivCircle" style="top: 40%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="6task2" onclick="selectCircle(this);" style="top: 65%;left: 75%" >
+                    <div class="kreis" id="6task2" data-group="interactivCircle" style="top: 65%;left: 75%" >
 
                     </div>
-                    <div class="kreis" id="7task2"  onclick="selectCircle(this);" style="top: 85%;left: 8%" >
+                    <div class="kreis" id="7task2"  data-group="interactivCircle" style="top: 85%;left: 8%" >
 
                     </div>
-                    <div class="kreis" id="8task2" onclick="selectCircle(this);" style="top: 65%;left: 30%" >
+                    <div class="kreis" id="8task2" data-group="interactivCircle" style="top: 65%;left: 30%" >
 
                     </div>
-                    <div class="kreis" id="9task2" onclick="selectCircle(this);" style="top: 85%;left: 60%" >
+                    <div class="kreis" id="9task2" data-group="interactivCircle" style="top: 85%;left: 60%" >
 
                     </div>
 
@@ -1356,31 +1366,31 @@ and open the template in the editor.
 
                 <div class="centredDiv">
 
-                    <div class="kreis" id="1task2Repeat" onclick="selectCircle(this);"  style="top: 18%;left: 10%" >
+                    <div class="kreis" id="1task2Repeat" data-group="interactivCircle"  style="top: 18%;left: 10%" >
 
                     </div>
-                    <div class="kreis" id="2task2Repeat" onclick="selectCircle(this);" style="top: 12%;left: 50%" >
+                    <div class="kreis" id="2task2Repeat" data-group="interactivCircle" style="top: 12%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="3task2Repeat" onclick="selectCircle(this);" style="top: 15%;left: 70%" >
+                    <div class="kreis" id="3task2Repeat" data-group="interactivCircle" style="top: 15%;left: 70%" >
 
                     </div>
-                    <div class="kreis" id="4task2Repeat" onclick="selectCircle(this);"  style="top: 45%;left: 2%" >
+                    <div class="kreis" id="4task2Repeat" data-group="interactivCircle"  style="top: 45%;left: 2%" >
 
                     </div>
-                    <div class="kreis" id="5task2Repeat" onclick="selectCircle(this);" style="top: 40%;left: 50%" >
+                    <div class="kreis" id="5task2Repeat" data-group="interactivCircle" style="top: 40%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="6task2Repeat" onclick="selectCircle(this);" style="top: 65%;left: 75%" >
+                    <div class="kreis" id="6task2Repeat" data-group="interactivCircle" style="top: 65%;left: 75%" >
 
                     </div>
-                    <div class="kreis" id="7task2Repeat"  onclick="selectCircle(this);" style="top: 85%;left: 8%" >
+                    <div class="kreis" id="7task2Repeat"  data-group="interactivCircle" style="top: 85%;left: 8%" >
 
                     </div>
-                    <div class="kreis" id="8task2Repeat" onclick="selectCircle(this);" style="top: 65%;left: 30%" >
+                    <div class="kreis" id="8task2Repeat" data-group="interactivCircle" style="top: 65%;left: 30%" >
 
                     </div>
-                    <div class="kreis" id="9task2Repeat" onclick="selectCircle(this);" style="top: 85%;left: 60%" >
+                    <div class="kreis" id="9task2Repeat" data-group="interactivCircle" style="top: 85%;left: 60%" >
 
                     </div>
 
@@ -1429,31 +1439,31 @@ and open the template in the editor.
 
                 <div class="centredDiv">
 
-                    <div class="kreis" id="1task3" onclick="selectCircle(this);"  style="top: 18%;left: 10%" >
+                    <div class="kreis" id="1task3" data-group="interactivCircle"  style="top: 18%;left: 10%" >
 
                     </div>
-                    <div class="kreis" id="2task3" onclick="selectCircle(this);" style="top: 12%;left: 50%" >
+                    <div class="kreis" id="2task3" data-group="interactivCircle" style="top: 12%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="3task3" onclick="selectCircle(this);" style="top: 15%;left: 70%" >
+                    <div class="kreis" id="3task3" data-group="interactivCircle" style="top: 15%;left: 70%" >
 
                     </div>
-                    <div class="kreis" id="4task3" onclick="selectCircle(this);"  style="top: 45%;left: 2%" >
+                    <div class="kreis" id="4task3" data-group="interactivCircle"  style="top: 45%;left: 2%" >
 
                     </div>
-                    <div class="kreis" id="5task3" onclick="selectCircle(this);" style="top: 40%;left: 50%" >
+                    <div class="kreis" id="5task3" data-group="interactivCircle" style="top: 40%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="6task3" onclick="selectCircle(this);" style="top: 65%;left: 75%" >
+                    <div class="kreis" id="6task3" data-group="interactivCircle" style="top: 65%;left: 75%" >
 
                     </div>
-                    <div class="kreis" id="7task3"  onclick="selectCircle(this);" style="top: 85%;left: 8%" >
+                    <div class="kreis" id="7task3"  data-group="interactivCircle" style="top: 85%;left: 8%" >
 
                     </div>
-                    <div class="kreis" id="8task3" onclick="selectCircle(this);" style="top: 65%;left: 30%" >
+                    <div class="kreis" id="8task3" data-group="interactivCircle" style="top: 65%;left: 30%" >
 
                     </div>
-                    <div class="kreis" id="9task3" onclick="selectCircle(this);" style="top: 85%;left: 60%" >
+                    <div class="kreis" id="9task3" data-group="interactivCircle" style="top: 85%;left: 60%" >
 
                     </div>
 
@@ -1501,31 +1511,31 @@ and open the template in the editor.
 
                 <div class="centredDiv">
 
-                    <div class="kreis" id="1task3Repeat" onclick="selectCircle(this);"  style="top: 18%;left: 10%" >
+                    <div class="kreis" id="1task3Repeat" data-group="interactivCircle"  style="top: 18%;left: 10%" >
 
                     </div>
-                    <div class="kreis" id="2task3Repeat" onclick="selectCircle(this);" style="top: 12%;left: 50%" >
+                    <div class="kreis" id="2task3Repeat" data-group="interactivCircle" style="top: 12%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="3task3Repeat" onclick="selectCircle(this);" style="top: 15%;left: 70%" >
+                    <div class="kreis" id="3task3Repeat" data-group="interactivCircle" style="top: 15%;left: 70%" >
 
                     </div>
-                    <div class="kreis" id="4task3Repeat" onclick="selectCircle(this);"  style="top: 45%;left: 2%" >
+                    <div class="kreis" id="4task3Repeat" data-group="interactivCircle"  style="top: 45%;left: 2%" >
 
                     </div>
-                    <div class="kreis" id="5task3Repeat" onclick="selectCircle(this);" style="top: 40%;left: 50%" >
+                    <div class="kreis" id="5task3Repeat" data-group="interactivCircle" style="top: 40%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="6task3Repeat" onclick="selectCircle(this);" style="top: 65%;left: 75%" >
+                    <div class="kreis" id="6task3Repeat" data-group="interactivCircle" style="top: 65%;left: 75%" >
 
                     </div>
-                    <div class="kreis" id="7task3Repeat"  onclick="selectCircle(this);" style="top: 85%;left: 8%" >
+                    <div class="kreis" id="7task3Repeat"  data-group="interactivCircle" style="top: 85%;left: 8%" >
 
                     </div>
-                    <div class="kreis" id="8task3Repeat" onclick="selectCircle(this);" style="top: 65%;left: 30%" >
+                    <div class="kreis" id="8task3Repeat" data-group="interactivCircle" style="top: 65%;left: 30%" >
 
                     </div>
-                    <div class="kreis" id="9task3Repeat" onclick="selectCircle(this);" style="top: 85%;left: 60%" >
+                    <div class="kreis" id="9task3Repeat" data-group="interactivCircle" style="top: 85%;left: 60%" >
 
                     </div>
 
@@ -1574,31 +1584,31 @@ and open the template in the editor.
 
                 <div class="centredDiv">
 
-                    <div class="kreis" id="1task4" onclick="selectCircle(this);"  style="top: 18%;left: 10%" >
+                    <div class="kreis" id="1task4" data-group="interactivCircle"  style="top: 18%;left: 10%" >
 
                     </div>
-                    <div class="kreis" id="2task4" onclick="selectCircle(this);" style="top: 12%;left: 50%" >
+                    <div class="kreis" id="2task4" data-group="interactivCircle" style="top: 12%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="3task4" onclick="selectCircle(this);" style="top: 15%;left: 70%" >
+                    <div class="kreis" id="3task4" data-group="interactivCircle" style="top: 15%;left: 70%" >
 
                     </div>
-                    <div class="kreis" id="4task4" onclick="selectCircle(this);"  style="top: 45%;left: 2%" >
+                    <div class="kreis" id="4task4" data-group="interactivCircle"  style="top: 45%;left: 2%" >
 
                     </div>
-                    <div class="kreis" id="5task4" onclick="selectCircle(this);" style="top: 40%;left: 50%" >
+                    <div class="kreis" id="5task4" data-group="interactivCircle" style="top: 40%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="6task4" onclick="selectCircle(this);" style="top: 65%;left: 75%" >
+                    <div class="kreis" id="6task4" data-group="interactivCircle" style="top: 65%;left: 75%" >
 
                     </div>
-                    <div class="kreis" id="7task4"  onclick="selectCircle(this);" style="top: 85%;left: 8%" >
+                    <div class="kreis" id="7task4"  data-group="interactivCircle" style="top: 85%;left: 8%" >
 
                     </div>
-                    <div class="kreis" id="8task4" onclick="selectCircle(this);" style="top: 65%;left: 30%" >
+                    <div class="kreis" id="8task4" data-group="interactivCircle" style="top: 65%;left: 30%" >
 
                     </div>
-                    <div class="kreis" id="9task4" onclick="selectCircle(this);" style="top: 85%;left: 60%" >
+                    <div class="kreis" id="9task4" data-group="interactivCircle" style="top: 85%;left: 60%" >
 
                     </div>
 
@@ -1646,31 +1656,31 @@ and open the template in the editor.
 
                 <div class="centredDiv">
 
-                    <div class="kreis" id="1task4Repeat" onclick="selectCircle(this);"  style="top: 18%;left: 10%" >
+                    <div class="kreis" id="1task4Repeat" data-group="interactivCircle"  style="top: 18%;left: 10%" >
 
                     </div>
-                    <div class="kreis" id="2task4Repeat" onclick="selectCircle(this);" style="top: 12%;left: 50%" >
+                    <div class="kreis" id="2task4Repeat" data-group="interactivCircle" style="top: 12%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="3task4Repeat" onclick="selectCircle(this);" style="top: 15%;left: 70%" >
+                    <div class="kreis" id="3task4Repeat" data-group="interactivCircle" style="top: 15%;left: 70%" >
 
                     </div>
-                    <div class="kreis" id="4task4Repeat" onclick="selectCircle(this);"  style="top: 45%;left: 2%" >
+                    <div class="kreis" id="4task4Repeat" data-group="interactivCircle"  style="top: 45%;left: 2%" >
 
                     </div>
-                    <div class="kreis" id="5task4Repeat" onclick="selectCircle(this);" style="top: 40%;left: 50%" >
+                    <div class="kreis" id="5task4Repeat" data-group="interactivCircle" style="top: 40%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="6task4Repeat" onclick="selectCircle(this);" style="top: 65%;left: 75%" >
+                    <div class="kreis" id="6task4Repeat" data-group="interactivCircle" style="top: 65%;left: 75%" >
 
                     </div>
-                    <div class="kreis" id="7task4Repeat"  onclick="selectCircle(this);" style="top: 85%;left: 8%" >
+                    <div class="kreis" id="7task4Repeat"  data-group="interactivCircle" style="top: 85%;left: 8%" >
 
                     </div>
-                    <div class="kreis" id="8task4Repeat" onclick="selectCircle(this);" style="top: 65%;left: 30%" >
+                    <div class="kreis" id="8task4Repeat" data-group="interactivCircle" style="top: 65%;left: 30%" >
 
                     </div>
-                    <div class="kreis" id="9task4Repeat" onclick="selectCircle(this);" style="top: 85%;left: 60%" >
+                    <div class="kreis" id="9task4Repeat" data-group="interactivCircle" style="top: 85%;left: 60%" >
 
                     </div>
 
@@ -1718,31 +1728,31 @@ and open the template in the editor.
 
                 <div class="centredDiv">
 
-                    <div class="kreis" id="1task5" onclick="selectCircle(this);"  style="top: 18%;left: 10%" >
+                    <div class="kreis" id="1task5" data-group="interactivCircle"  style="top: 18%;left: 10%" >
 
                     </div>
-                    <div class="kreis" id="2task5" onclick="selectCircle(this);" style="top: 12%;left: 50%" >
+                    <div class="kreis" id="2task5" data-group="interactivCircle" style="top: 12%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="3task5" onclick="selectCircle(this);" style="top: 15%;left: 70%" >
+                    <div class="kreis" id="3task5" data-group="interactivCircle" style="top: 15%;left: 70%" >
 
                     </div>
-                    <div class="kreis" id="4task5" onclick="selectCircle(this);"  style="top: 45%;left: 2%" >
+                    <div class="kreis" id="4task5" data-group="interactivCircle"  style="top: 45%;left: 2%" >
 
                     </div>
-                    <div class="kreis" id="5task5" onclick="selectCircle(this);" style="top: 40%;left: 50%" >
+                    <div class="kreis" id="5task5" data-group="interactivCircle" style="top: 40%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="6task5" onclick="selectCircle(this);" style="top: 65%;left: 75%" >
+                    <div class="kreis" id="6task5" data-group="interactivCircle" style="top: 65%;left: 75%" >
 
                     </div>
-                    <div class="kreis" id="7task5"  onclick="selectCircle(this);" style="top: 85%;left: 8%" >
+                    <div class="kreis" id="7task5"  data-group="interactivCircle" style="top: 85%;left: 8%" >
 
                     </div>
-                    <div class="kreis" id="8task5" onclick="selectCircle(this);" style="top: 65%;left: 30%" >
+                    <div class="kreis" id="8task5" data-group="interactivCircle" style="top: 65%;left: 30%" >
 
                     </div>
-                    <div class="kreis" id="9task5" onclick="selectCircle(this);" style="top: 85%;left: 60%" >
+                    <div class="kreis" id="9task5" data-group="interactivCircle" style="top: 85%;left: 60%" >
 
                     </div>
 
@@ -1790,31 +1800,31 @@ and open the template in the editor.
 
                 <div class="centredDiv">
 
-                    <div class="kreis" id="1task5Repeat" onclick="selectCircle(this);"  style="top: 18%;left: 10%" >
+                    <div class="kreis" id="1task5Repeat" data-group="interactivCircle"  style="top: 18%;left: 10%" >
 
                     </div>
-                    <div class="kreis" id="2task5Repeat" onclick="selectCircle(this);" style="top: 12%;left: 50%" >
+                    <div class="kreis" id="2task5Repeat" data-group="interactivCircle" style="top: 12%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="3task5Repeat" onclick="selectCircle(this);" style="top: 15%;left: 70%" >
+                    <div class="kreis" id="3task5Repeat" data-group="interactivCircle" style="top: 15%;left: 70%" >
 
                     </div>
-                    <div class="kreis" id="4task5Repeat" onclick="selectCircle(this);"  style="top: 45%;left: 2%" >
+                    <div class="kreis" id="4task5Repeat" data-group="interactivCircle"  style="top: 45%;left: 2%" >
 
                     </div>
-                    <div class="kreis" id="5task5Repeat" onclick="selectCircle(this);" style="top: 40%;left: 50%" >
+                    <div class="kreis" id="5task5Repeat" data-group="interactivCircle" style="top: 40%;left: 50%" >
 
                     </div>
-                    <div class="kreis" id="6task5Repeat" onclick="selectCircle(this);" style="top: 65%;left: 75%" >
+                    <div class="kreis" id="6task5Repeat" data-group="interactivCircle" style="top: 65%;left: 75%" >
 
                     </div>
-                    <div class="kreis" id="7task5Repeat"  onclick="selectCircle(this);" style="top: 85%;left: 8%" >
+                    <div class="kreis" id="7task5Repeat"  data-group="interactivCircle" style="top: 85%;left: 8%" >
 
                     </div>
-                    <div class="kreis" id="8task5Repeat" onclick="selectCircle(this);" style="top: 65%;left: 30%" >
+                    <div class="kreis" id="8task5Repeat" data-group="interactivCircle" style="top: 65%;left: 30%" >
 
                     </div>
-                    <div class="kreis" id="9task5Repeat" onclick="selectCircle(this);" style="top: 85%;left: 60%" >
+                    <div class="kreis" id="9task5Repeat" data-group="interactivCircle" style="top: 85%;left: 60%" >
 
                     </div>
 

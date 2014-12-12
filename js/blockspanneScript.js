@@ -223,12 +223,16 @@ function selectCircle(selectedCircle) {
                             
                             var taskRepeatPageID = currentTaskPageID + "Repeat";
                             nextTaskPageID = taskRepeatPageID;
+                            // hide counter
+                            $(".restCirclesCounter").hide();
                             $.mobile.changePage('#startHint', {transition: "flip"});
 
                         }
                         // if task was already repeated
                         else
                         {
+                            // hide counter
+                            $(".restCirclesCounter").hide();
                             $.mobile.changePage('#endPage', {transition: "flip"});
                             taskWillRepeat = false;
                             // disable selection
@@ -252,6 +256,8 @@ function selectCircle(selectedCircle) {
                         selectedCircles.length = 0;
                         // reset number of selected circles
                         numberOfSelectedCircles = 0;
+                        // hide counter
+                            $(".restCirclesCounter").hide();
                         // switch to next task
                         var currentPageId = $.mobile.activePage.attr('id');
                         switchToNextTask(currentPageId);
