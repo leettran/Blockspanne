@@ -52,11 +52,11 @@ and open the template in the editor.
                     }
                     
                     // this event allows only click the circle one time
-                    $("div[data-group*='interactivCircleTrial']").one("tap", function() {
+                    $("div[data-group*='interactivCircleTrial']").bind("tap", function() {
                     selectCircleTrial(this);
                 });
                 // this event will interact faster than onclick
-                $("div[data-group*='interactivCircle']").one("tap", function() {
+                $("div[data-group*='interactivCircle']").bind("tap", function() {
                     selectCircle(this);
                 });
 
@@ -741,7 +741,8 @@ and open the template in the editor.
                             $.mobile.changePage('#blockspanneTrial2', {transition: "none"});
                         }, 1500);
                     }
-
+                    
+                    
                     defineCirclesToFlash();
 
                 });

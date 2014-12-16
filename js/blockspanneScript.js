@@ -78,6 +78,7 @@ function onSlideToTrial() {
 function onShowTrial() {
     try
     {
+         
         $.mobile.changePage('#blockspanneTrial1', {transition: "flip"});
     }
 
@@ -131,7 +132,7 @@ function flashCircles(circlesArray, taskId, taskHintId) {
         var circleCnt = 0;
         // loop into circles array and highlighten one after another
         function loopIntoarray() {
-            setTimeout(function() {
+            setTimeout(function () {
                 // build circleId
                 var circleId = flashedCircles[circleCnt] + taskId;
                 // highlight it           
@@ -140,7 +141,7 @@ function flashCircles(circlesArray, taskId, taskHintId) {
                 // if still circles are to be flashed
                 if (circleCnt < numberOfCirclesToSelect) {
                     // hide highlighting
-                    setTimeout(function() {
+                    setTimeout(function () {
                         cleanAllSelections();
                         loopIntoarray();
                     }, 1500);
@@ -148,7 +149,7 @@ function flashCircles(circlesArray, taskId, taskHintId) {
                 // if number of circles is reached
                 else {
                     // hide highlighting
-                    setTimeout(function() {
+                    setTimeout(function () {
                         cleanAllSelections();
                         // show hint text
                         $("#" + taskHintId).html("Tippen Sie die Kreise in umgekehrter Reihenfolge an.");
@@ -158,7 +159,7 @@ function flashCircles(circlesArray, taskId, taskHintId) {
 
                     }, 1500);
 
-                    setTimeout(function() {
+                    setTimeout(function () {
                         $("#" + taskHintId).hide();
                         // enable selection executing 
                         canSelect = true;
@@ -189,6 +190,12 @@ function selectCircle(selectedCircle) {
         {
             // get circle id
             var circleId = selectedCircle.id;
+            // check if same circle is clicked twice
+        if(jQuery.inArray(circleId,selectedCircles) !== -1){
+            return;
+        }
+            
+            
             // increment number of selected circles
             numberOfSelectedCircles++;
             // add selected circle to appr. array
@@ -197,9 +204,9 @@ function selectCircle(selectedCircle) {
             highlightClickedCircle(circleId);
             // clean other selection
             cleanPreviousSelection(circleId);
-            
+
             // decrement rest circles counter
-        decrementRestCirclesCounter();
+            decrementRestCirclesCounter();
 
             // check if number of circles to be selected is reached
             if (numberOfSelectedCircles === numberOfCirclesToSelect) {
@@ -207,7 +214,7 @@ function selectCircle(selectedCircle) {
                 // if a mistake has been done
                 if (mistakeOccured())
                 {
-                    setTimeout(function() {
+                    setTimeout(function () {
                         // check if task will repeat
                         if (taskWillRepeat)
                         {
@@ -220,7 +227,7 @@ function selectCircle(selectedCircle) {
                             numberOfSelectedCircles = 0;
                             // clean selections
                             cleanAllSelections();
-                            
+
                             var taskRepeatPageID = currentTaskPageID + "Repeat";
                             nextTaskPageID = taskRepeatPageID;
                             // hide counter
@@ -246,7 +253,7 @@ function selectCircle(selectedCircle) {
                 // if task was successfull
                 else
                 {
-                    setTimeout(function() {
+                    setTimeout(function () {
 
 // disable selection
                         canSelect = false;
@@ -257,7 +264,7 @@ function selectCircle(selectedCircle) {
                         // reset number of selected circles
                         numberOfSelectedCircles = 0;
                         // hide counter
-                            $(".restCirclesCounter").hide();
+                        $(".restCirclesCounter").hide();
                         // switch to next task
                         var currentPageId = $.mobile.activePage.attr('id');
                         switchToNextTask(currentPageId);
@@ -333,14 +340,14 @@ function switchToNextTask(currentPageID) {
 
 
 // decrements rest circles counter
-function decrementRestCirclesCounter(){
-    
+function decrementRestCirclesCounter() {
+
     try
     {
         var restCircles = numberOfCirclesToSelect - numberOfSelectedCircles;
-       $(".restCirclesCounter").html("Noch " + restCircles + " Kreis(e)"); 
+        $(".restCirclesCounter").html("Noch " + restCircles + " Kreis(e)");
     }
-    
+
     catch (error) {
         console.log("An error has been occured! " + error);
     }
@@ -353,6 +360,11 @@ function selectCircleTrial(selectedCircle) {
     {
         // get circle id
         var circleId = selectedCircle.id;
+        
+        // check if same circle is clicked twice
+        if(jQuery.inArray(circleId,selectedCircles) !== -1){
+            return;
+        }
 
         // increment number of selected circles
         numberOfSelectedCircles++;
@@ -363,7 +375,7 @@ function selectCircleTrial(selectedCircle) {
         highlightClickedCircle(circleId);
         // clean other selection
         cleanPreviousSelectionTrial(circleId);
-        
+
         // decrement rest circles counter
         decrementRestCirclesCounter();
 
@@ -374,7 +386,7 @@ function selectCircleTrial(selectedCircle) {
             // if a mistake has been done
             if (mistakeOccuredTrial())
             {
-                setTimeout(function() {
+                setTimeout(function () {
 
                     $.mobile.changePage('#trialRetry', {transition: "none"});
                     // reset all circles
@@ -383,13 +395,14 @@ function selectCircleTrial(selectedCircle) {
                     selectedCircles.length = 0;
                     // reset number of selected circles
                     numberOfSelectedCircles = 0;
+                    
                 }, 200);
 
             }
             // if trial was successfull
             else
             {
-                setTimeout(function() {
+                setTimeout(function () {
 
                     $.mobile.changePage('#startTask', {transition: "none"});
                     // reset all circles
@@ -398,6 +411,8 @@ function selectCircleTrial(selectedCircle) {
                     selectedCircles.length = 0;
                     // reset number of selected circles
                     numberOfSelectedCircles = 0;
+                    
+
                 }, 200);
             }
 
