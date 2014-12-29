@@ -140,6 +140,19 @@
         right: 5%;
     }
     
+    .introTextHeader{
+        font-size: 35px;
+        color: black;
+        text-shadow: none;
+        text-align: center;
+        text-decoration: underline;
+        font-weight: bold;  
+        position: absolute;
+        top: 18%;
+        left: 5%;
+        right: 5%;
+    }
+    
     .introTextTop{
         font-size: 33px;
         color: black;
@@ -204,6 +217,33 @@
         text-shadow: none;
     }
     
+    .defaultButtonTop:active, .defaultButtonTop:focus, .defaultButtonTop.active{
+        background-image:url('images/btns-bg/bt-weiter-hover.png');
+        /*        position:absolute; 
+                bottom: 1.8%;
+                right: 4.8%;*/
+        margin-top: -10px;
+        margin-right: 5px;
+        background-image: none;
+        outline: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+
+    .defaultButtonMiddle:active, .defaultButtonMiddle:focus, .defaultButtonMiddle.active{
+        background-image:url('images/btns-bg/bt-weiter-hover.png');
+        /*        position:absolute; 
+                bottom: 1.8%;
+                right: 4.8%;*/
+        margin-top: -10px;
+        margin-right: 5px;
+        background-image: none;
+        outline: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    
     .defaultButtonMiddle{
         
         background-size: 100%;
@@ -216,6 +256,8 @@
         font-size: x-large;
         text-shadow: none;
     }
+    
+    
 
 
     /*to use with the default phonegap button element*/

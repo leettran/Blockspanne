@@ -17,6 +17,17 @@ var canSelect = false;
 
 
 
+// to toggle can select bool
+function toggleCanSelectBool(value){
+    try
+    {
+       canSelect = value; 
+    }
+    catch (error) {
+        console.log("An error has been occured! " + error);
+    }
+}
+
 
 // to switch to the demo page
 function goToDemoPage() {
@@ -180,6 +191,7 @@ function flashCircles(circlesArray, taskId, taskHintId) {
 }
 
 
+
 // select a certain circle clicked
 function selectCircle(selectedCircle) {
 
@@ -255,7 +267,7 @@ function selectCircle(selectedCircle) {
                 {
                     setTimeout(function () {
 
-// disable selection
+                        // disable selection
                         canSelect = false;
                         // reset all circles
                         cleanAllSelections();
@@ -280,6 +292,10 @@ function selectCircle(selectedCircle) {
         console.log("An error has been occured! " + error);
     }
 }
+
+
+
+
 
 
 // switches to the next task
@@ -358,6 +374,10 @@ function selectCircleTrial(selectedCircle) {
 
     try
     {
+        
+        // only if highlighting is completed!
+        if (canSelect)
+        {
         // get circle id
         var circleId = selectedCircle.id;
         
@@ -395,6 +415,10 @@ function selectCircleTrial(selectedCircle) {
                     selectedCircles.length = 0;
                     // reset number of selected circles
                     numberOfSelectedCircles = 0;
+                     // disable selection
+                        canSelect = false;
+                    // reset circle counter
+                    $(".restCirclesCounter").html("Noch 2 Kreis(e)");
                     
                 }, 200);
 
@@ -411,7 +435,10 @@ function selectCircleTrial(selectedCircle) {
                     selectedCircles.length = 0;
                     // reset number of selected circles
                     numberOfSelectedCircles = 0;
-                    
+                     // disable selection
+                        canSelect = false;
+                    // reset circle counter
+                    $(".restCirclesCounter").html("Noch 2 Kreis(e)");
 
                 }, 200);
             }
@@ -420,13 +447,16 @@ function selectCircleTrial(selectedCircle) {
 
 
 
-
+        }
     }
 
     catch (error) {
         console.log("An error has been occured! " + error);
     }
 }
+
+
+
 
 
 // checks if the selection has a mistake

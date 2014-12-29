@@ -42,23 +42,23 @@ and open the template in the editor.
             <!--script used to show start page for few seconds and the to switch to intro page-->
             <script type="text/javascript">
 
-                $(document).delegate('#blockspanneStart', 'pageshow', function() {
+                $(document).delegate('#blockspanneStart', 'pageshow', function () {
 
                     function showJustForWhile() {
-                        setTimeout(function() {
+                        setTimeout(function () {
                             $.mobile.changePage('#blockspanneIntro', {transition: "flip"});
                         }, 4000);
 
                     }
-                    
+
                     // this event allows only click the circle one time
-                    $("div[data-group*='interactivCircleTrial']").bind("tap", function() {
-                    selectCircleTrial(this);
-                });
-                // this event will interact faster than onclick
-                $("div[data-group*='interactivCircle']").bind("tap", function() {
-                    selectCircle(this);
-                });
+                    $("div[data-group*='interactivCircleTrial']").bind("tap", function () {
+                        selectCircleTrial(this);
+                    });
+                    // this event will interact faster than onclick
+                    $("div[data-group*='interactivCircle']").bind("tap", function () {
+                        selectCircle(this);
+                    });
 
                     showJustForWhile();
 
@@ -106,7 +106,8 @@ and open the template in the editor.
 
                 <center>
                     <p class="introText">
-                        Achten Sie auf die aufleuchtenden Kreise und ihre Reihenfolge!
+                        Achten Sie auf die aufleuchtenden Kreise und ihre Reihenfolge! </br>
+                        Tippen Sie die "Weiter" Schaltfläche an, um eine kleine Demonstration zu zeigen.
 
                     </p>
                 </center>
@@ -162,10 +163,10 @@ and open the template in the editor.
 
             <script type="text/javascript">
 
-                $(document).delegate('#blockspanneDemo1', 'pageshow', function() {
+                $(document).delegate('#blockspanneDemo1', 'pageshow', function () {
 
                     function showJustForWhile() {
-                        setTimeout(function() {
+                        setTimeout(function () {
                             $.mobile.changePage('#blockspanneDemo2', {transition: "none"});
                         }, 1500);
 
@@ -221,10 +222,10 @@ and open the template in the editor.
 
             <script type="text/javascript">
 
-                $(document).delegate('#blockspanneDemo2', 'pageshow', function() {
+                $(document).delegate('#blockspanneDemo2', 'pageshow', function () {
 
                     function showJustForWhile() {
-                        setTimeout(function() {
+                        setTimeout(function () {
                             $.mobile.changePage('#blockspanneDemo3', {transition: "none"});
                         }, 1500);
 
@@ -280,10 +281,10 @@ and open the template in the editor.
 
             <script type="text/javascript">
 
-                $(document).delegate('#blockspanneDemo3', 'pageshow', function() {
+                $(document).delegate('#blockspanneDemo3', 'pageshow', function () {
 
                     function showJustForWhile() {
-                        setTimeout(function() {
+                        setTimeout(function () {
                             $.mobile.changePage('#blockspanneDemo4', {transition: "none"});
                         }, 1500);
 
@@ -339,10 +340,10 @@ and open the template in the editor.
 
             <script type="text/javascript">
 
-                $(document).delegate('#blockspanneDemo4', 'pageshow', function() {
+                $(document).delegate('#blockspanneDemo4', 'pageshow', function () {
 
                     function showJustForWhile() {
-                        setTimeout(function() {
+                        setTimeout(function () {
                             $.mobile.changePage('#blockspanneDemo5', {transition: "none"});
                         }, 1500);
 
@@ -399,10 +400,10 @@ and open the template in the editor.
 
             <script type="text/javascript">
 
-                $(document).delegate('#blockspanneDemo5', 'pageshow', function() {
+                $(document).delegate('#blockspanneDemo5', 'pageshow', function () {
 
                     function showJustForWhile() {
-                        setTimeout(function() {
+                        setTimeout(function () {
                             $.mobile.changePage('#solvingDemo', {transition: "none"});
                         }, 1500);
 
@@ -424,7 +425,7 @@ and open the template in the editor.
 
                 <center>
                     <p class="introText">
-                        Später ist es Ihre Aufgabe, die Kreise in <b>umgekehrter Reihenfolge</b> anzutippen.
+                        Später ist es Ihre Aufgabe (wie im folgenden Beispiel), die Kreise in <b>umgekehrter Reihenfolge</b> anzutippen.
 
                     </p>
                 </center>
@@ -479,15 +480,18 @@ and open the template in the editor.
 
                 </div>
 
+
+                <image src="css\images\hand.png" style="position: absolute;bottom: 10%;left: 20%;z-index: 1000;"/>
+
             </div>
 
 
             <script type="text/javascript">
 
-                $(document).delegate('#blockspanneDemo6', 'pageshow', function() {
+                $(document).delegate('#blockspanneDemo6', 'pageshow', function () {
 
                     function showJustForWhile() {
-                        setTimeout(function() {
+                        setTimeout(function () {
                             $("#hitn1").hide();
                             $.mobile.changePage('#blockspanneDemo7', {transition: "none"});
                         }, 1500);
@@ -513,7 +517,7 @@ and open the template in the editor.
                     <div class="kreis"   style="top: 18%;left: 10%"  >
 
                     </div>
-                    <div class="kreisSelected"  style="top: 12%;left: 50%" >
+                    <div class="kreis" id="firstSelect_demo" style="top: 12%;left: 50%" >
 
                     </div>
                     <div class="kreis"  style="top: 15%;left: 70%" >
@@ -541,22 +545,46 @@ and open the template in the editor.
 
                 </div>
 
+                <image src="css\images\hand.png" id="demoHand1" style="position: absolute;bottom: 10%;left: 20%;z-index: 1000;"/>
+
             </div>
 
 
             <script type="text/javascript">
 
-                $(document).delegate('#blockspanneDemo7', 'pageshow', function() {
+                $(document).delegate('#blockspanneDemo7', 'pageshow', function () {
 
                     function showJustForWhile() {
-                        setTimeout(function() {
+                        setTimeout(function () {
 
-                            $.mobile.changePage('#blockspanneDemo8', {transition: "none"});
+                            // move hand cursor back
+                            $("#demoHand1").animate({
+                                left: '20' + '%',
+                                bottom: '10' + '%'
+
+                            }, 2000, function () {
+                                // Animation completed
+                                $.mobile.changePage('#blockspanneDemo8', {transition: "none"});
+                                // reset first selection
+                                $("#firstSelect_demo").attr("class", "kreis");
+                            });
                         }, 1500);
 
                     }
 
-                    showJustForWhile();
+                    // move hand cursor to target circle
+                    $("#demoHand1").animate({
+                        left: '50' + '%',
+                        bottom: '70' + '%'
+
+                    }, 2000, function () {
+                        // Animation completed
+
+                        // select circle
+                        $("#firstSelect_demo").attr("class", "kreisSelected");
+
+                        showJustForWhile();
+                    });
 
                 });
             </script>
@@ -577,13 +605,13 @@ and open the template in the editor.
                     <div class="kreis"   style="top: 18%;left: 10%"  >
 
                     </div>
-                    <div class="kreis"  style="top: 12%;left: 50%" >
+                    <div class="kreisSelected" id="firstSelectRep_demo" style="top: 12%;left: 50%" >
 
                     </div>
                     <div class="kreis"  style="top: 15%;left: 70%" >
 
                     </div>
-                    <div class="kreisSelected"   style="top: 45%;left: 2%" >
+                    <div class="kreis" id="secondSelect_demo" style="top: 45%;left: 2%" >
 
                     </div>
                     <div class="kreis"   style="top: 40%;left: 50%" >
@@ -605,22 +633,50 @@ and open the template in the editor.
 
                 </div>
 
+                <image src="css\images\hand.png" id="demoHand2" style="position: absolute;bottom: 10%;left: 20%;z-index: 1000;"/>
+
             </div>
 
 
             <script type="text/javascript">
 
-                $(document).delegate('#blockspanneDemo8', 'pageshow', function() {
+                $(document).delegate('#blockspanneDemo8', 'pageshow', function () {
 
                     function showJustForWhile() {
-                        setTimeout(function() {
+                        setTimeout(function () {
 
-                            $.mobile.changePage('#bridgingPage', {transition: "none"});
+                            $("#demoHand2").animate({
+                                left: '10' + '%',
+                                bottom: '20' + '%'
+
+                            }, 2000, function () {
+                                // Animation completed
+                                $.mobile.changePage('#bridgingPage', {transition: "none"});
+                                // reset circle
+                                $("#secondSelect_demo").attr("class", "kreis");
+                                // reset previous selection (when demo is shown again)
+                                $("#firstSelectRep_demo").attr("class", "kreisSelected");
+
+                            });
                         }, 1500);
 
                     }
 
-                    showJustForWhile();
+                    // move hand cursor to target circle
+                    $("#demoHand2").animate({
+                        left: '3' + '%',
+                        bottom: '35' + '%'
+
+                    }, 2000, function () {
+                        // Animation completed
+
+                        // select circle
+                        $("#secondSelect_demo").attr("class", "kreisSelected");
+                        // reset previous selection
+                        $("#firstSelectRep_demo").attr("class", "kreis");
+
+                        showJustForWhile();
+                    });
 
                 });
             </script>
@@ -666,10 +722,12 @@ and open the template in the editor.
 
                 <image src="css\images\icons\info.png" class="infoIcon"/>
 
+                <p class="introTextHeader">  Ein Probedurchgang   </p>
+                
                 <center>
                     <p class="introText">
 
-                        Ein Probedurchgang. 
+                     
                         </br>
                         Merken Sie sich die aufleuchtenden Kreise und ihre Reihenfolge
 
@@ -723,26 +781,26 @@ and open the template in the editor.
 
 
                 </div>
-                
-                
+
+
 
             </div>
 
 
             <script type="text/javascript">
 
-                $(document).delegate('#blockspanneTrial1', 'pageshow', function() {
+                $(document).delegate('#blockspanneTrial1', 'pageshow', function () {
 
                     function defineCirclesToFlash() {
                         flashedCircles = new Array("1trial", "4trial");
                         numberOfCirclesToSelect = flashedCircles.length;
-                        setTimeout(function() {
+                        setTimeout(function () {
 
                             $.mobile.changePage('#blockspanneTrial2', {transition: "none"});
                         }, 1500);
                     }
-                    
-                    
+
+
                     defineCirclesToFlash();
 
                 });
@@ -795,11 +853,11 @@ and open the template in the editor.
 
             <script type="text/javascript">
 
-                $(document).delegate('#blockspanneTrial2', 'pageshow', function() {
+                $(document).delegate('#blockspanneTrial2', 'pageshow', function () {
 
                     function showJustForWhile() {
 
-                        setTimeout(function() {
+                        setTimeout(function () {
 
                             $.mobile.changePage('#blockspanneTrial3', {transition: "none"});
                         }, 1500);
@@ -857,11 +915,11 @@ and open the template in the editor.
 
             <script type="text/javascript">
 
-                $(document).delegate('#blockspanneTrial3', 'pageshow', function() {
+                $(document).delegate('#blockspanneTrial3', 'pageshow', function () {
 
                     function showJustForWhile() {
 
-                        setTimeout(function() {
+                        setTimeout(function () {
 
                             $.mobile.changePage('#blockspanneTrial4', {transition: "none"});
                         }, 1500);
@@ -919,11 +977,11 @@ and open the template in the editor.
 
             <script type="text/javascript">
 
-                $(document).delegate('#blockspanneTrial4', 'pageshow', function() {
+                $(document).delegate('#blockspanneTrial4', 'pageshow', function () {
 
                     function showJustForWhile() {
 
-                        setTimeout(function() {
+                        setTimeout(function () {
 
                             $.mobile.changePage('#blockspanneTrial5', {transition: "none"});
                         }, 1500);
@@ -981,11 +1039,11 @@ and open the template in the editor.
 
             <script type="text/javascript">
 
-                $(document).delegate('#blockspanneTrial5', 'pageshow', function() {
+                $(document).delegate('#blockspanneTrial5', 'pageshow', function () {
 
                     function showJustForWhile() {
 
-                        setTimeout(function() {
+                        setTimeout(function () {
 
                             $.mobile.changePage('#trialExecution1', {transition: "none"});
                         }, 1500);
@@ -1037,7 +1095,7 @@ and open the template in the editor.
 
 
                 </div>
-                
+
                 <!--counter of rest circles-->
                 <div class="restCirclesCounter"> Noch 2 Kreis(e)</div>
 
@@ -1046,13 +1104,18 @@ and open the template in the editor.
 
             <script type="text/javascript">
 
-                $(document).delegate('#trialExecution1', 'pageshow', function() {
+                $(document).delegate('#trialExecution1', 'pageshow', function () {
 
                     function showJustForWhile() {
-                        setTimeout(function() {
+                        // show hint
+                        $("#hint2").show();
+                        
+                        
+                        setTimeout(function () {
 
                             $("#hint2").hide();
                             $(".restCirclesCounter").html("Noch 2 Kreis(e)");
+                            toggleCanSelectBool(true);
 
                         }, 1500);
 
@@ -1178,7 +1241,7 @@ and open the template in the editor.
 
 
                 </div>
-                
+
                 <!--counter of rest circles-->
                 <div class="restCirclesCounter"> Noch 2 Kreis(e)</div>
 
@@ -1187,7 +1250,7 @@ and open the template in the editor.
 
             <script type="text/javascript">
 
-                $(document).delegate('#task1', 'pageshow', function() {
+                $(document).delegate('#task1', 'pageshow', function () {
 
                     function submitDataForTask() {
 
@@ -1195,10 +1258,10 @@ and open the template in the editor.
                         // set hide counter
                         $(".restCirclesCounter").hide();
                         $(".restCirclesCounter").html("Noch 2 Kreis(e)");
-                         
+
                         // call flashing function
-                        setTimeout(function() {
-                            
+                        setTimeout(function () {
+
                             flashCircles(circlesToBeFlashed, "task1", "hintTask1");
 
                         }, 200);
@@ -1210,10 +1273,10 @@ and open the template in the editor.
             </script>
 
         </div>
-        
-        
-        
-         <!--task 1 repeat page-->
+
+
+
+        <!--task 1 repeat page-->
         <div data-role="page" id="task1Repeat" data-dom-cache=true class="whitePage">
 
             <div data-role="content">
@@ -1252,7 +1315,7 @@ and open the template in the editor.
 
 
                 </div>
-                
+
                 <!--counter of rest circles-->
                 <div class="restCirclesCounter"> Noch 2 Kreis(e)</div>
 
@@ -1261,17 +1324,17 @@ and open the template in the editor.
 
             <script type="text/javascript">
 
-                $(document).delegate('#task1Repeat', 'pageshow', function() {
+                $(document).delegate('#task1Repeat', 'pageshow', function () {
 
                     function submitDataForTask() {
 
                         var circlesToBeFlashed = new Array("5", "1");
                         // set hide counter
-                         $(".restCirclesCounter").hide();
-                         $(".restCirclesCounter").html("Noch 2 Kreis(e)");
+                        $(".restCirclesCounter").hide();
+                        $(".restCirclesCounter").html("Noch 2 Kreis(e)");
                         // call flashing function
-                        setTimeout(function() {
-                            
+                        setTimeout(function () {
+
                             flashCircles(circlesToBeFlashed, "task1Repeat", "hintTask1Repeat");
 
                         }, 200);
@@ -1283,9 +1346,9 @@ and open the template in the editor.
             </script>
 
         </div>
-         
-         
-         
+
+
+
         <!--task 2 page-->
         <div data-role="page" id="task2" data-dom-cache=true class="whitePage">
 
@@ -1325,7 +1388,7 @@ and open the template in the editor.
 
 
                 </div>
-                
+
                 <!--counter of rest circles-->
                 <div class="restCirclesCounter"> Noch 3 Kreis(e)</div>
 
@@ -1334,17 +1397,17 @@ and open the template in the editor.
 
             <script type="text/javascript">
 
-                $(document).delegate('#task2', 'pageshow', function() {
+                $(document).delegate('#task2', 'pageshow', function () {
 
                     function submitDataForTask() {
 
                         var circlesToBeFlashed = new Array("1", "8", "6");
                         // set hide counter
                         $(".restCirclesCounter").hide();
-                         $(".restCirclesCounter").html("Noch 3 Kreis(e)");
+                        $(".restCirclesCounter").html("Noch 3 Kreis(e)");
                         // call flashing function
-                        setTimeout(function() {
-                            
+                        setTimeout(function () {
+
                             flashCircles(circlesToBeFlashed, "task2", "hintTask2");
 
                         }, 200);
@@ -1356,8 +1419,8 @@ and open the template in the editor.
             </script>
 
         </div>
-        
-        
+
+
         <!--task 2 repeat page-->
         <div data-role="page" id="task2Repeat" data-dom-cache=true class="whitePage">
 
@@ -1397,7 +1460,7 @@ and open the template in the editor.
 
 
                 </div>
-                
+
                 <!--counter of rest circles-->
                 <div class="restCirclesCounter"> Noch 3 Kreis(e)</div>
 
@@ -1406,17 +1469,17 @@ and open the template in the editor.
 
             <script type="text/javascript">
 
-                $(document).delegate('#task2Repeat', 'pageshow', function() {
+                $(document).delegate('#task2Repeat', 'pageshow', function () {
 
                     function submitDataForTask() {
 
-                        var circlesToBeFlashed = new Array("4", "7","9");
+                        var circlesToBeFlashed = new Array("4", "7", "9");
                         // set hide counter
                         $(".restCirclesCounter").hide();
-                         $(".restCirclesCounter").html("Noch 3 Kreis(e)");
+                        $(".restCirclesCounter").html("Noch 3 Kreis(e)");
                         // call flashing function
-                        setTimeout(function() {
-                            
+                        setTimeout(function () {
+
                             flashCircles(circlesToBeFlashed, "task2Repeat", "hintTask2Repeat");
 
                         }, 200);
@@ -1428,9 +1491,9 @@ and open the template in the editor.
             </script>
 
         </div>
-        
-        
-        
+
+
+
         <!--task 3 page-->
         <div data-role="page" id="task3" data-dom-cache=true class="whitePage">
 
@@ -1470,7 +1533,7 @@ and open the template in the editor.
 
 
                 </div>
-                
+
                 <!--counter of rest circles-->
                 <div class="restCirclesCounter"> Noch 4 Kreis(e)</div>
 
@@ -1479,17 +1542,17 @@ and open the template in the editor.
 
             <script type="text/javascript">
 
-                $(document).delegate('#task3', 'pageshow', function() {
+                $(document).delegate('#task3', 'pageshow', function () {
 
                     function submitDataForTask() {
 
                         var circlesToBeFlashed = new Array("3", "8", "6", "9");
                         // set hide counter
                         $(".restCirclesCounter").hide();
-                         $(".restCirclesCounter").html("Noch 4 Kreis(e)");
+                        $(".restCirclesCounter").html("Noch 4 Kreis(e)");
                         // call flashing function
-                        setTimeout(function() {
-                            
+                        setTimeout(function () {
+
                             flashCircles(circlesToBeFlashed, "task3", "hintTask3");
 
                         }, 200);
@@ -1501,8 +1564,8 @@ and open the template in the editor.
             </script>
 
         </div>
-        
-        
+
+
         <!--task 3 repeat page-->
         <div data-role="page" id="task3Repeat" data-dom-cache=true class="whitePage">
 
@@ -1542,7 +1605,7 @@ and open the template in the editor.
 
 
                 </div>
-                
+
                 <!--counter of rest circles-->
                 <div class="restCirclesCounter"> Noch 4 Kreis(e)</div>
 
@@ -1551,17 +1614,17 @@ and open the template in the editor.
 
             <script type="text/javascript">
 
-                $(document).delegate('#task3Repeat', 'pageshow', function() {
+                $(document).delegate('#task3Repeat', 'pageshow', function () {
 
                     function submitDataForTask() {
 
-                        var circlesToBeFlashed = new Array("1", "4", "7","2");
+                        var circlesToBeFlashed = new Array("1", "4", "7", "2");
                         // set hide counter
                         $(".restCirclesCounter").hide();
-                         $(".restCirclesCounter").html("Noch 4 Kreis(e)");
+                        $(".restCirclesCounter").html("Noch 4 Kreis(e)");
                         // call flashing function
-                        setTimeout(function() {
-                            
+                        setTimeout(function () {
+
                             flashCircles(circlesToBeFlashed, "task3Repeat", "hintTask3Repeat");
 
                         }, 200);
@@ -1573,9 +1636,9 @@ and open the template in the editor.
             </script>
 
         </div>
-        
-        
-        
+
+
+
         <!--task 4 page-->
         <div data-role="page" id="task4" data-dom-cache=true class="whitePage">
 
@@ -1615,7 +1678,7 @@ and open the template in the editor.
 
 
                 </div>
-                
+
                 <!--counter of rest circles-->
                 <div class="restCirclesCounter"> Noch 5 Kreis(e)</div>
 
@@ -1624,17 +1687,17 @@ and open the template in the editor.
 
             <script type="text/javascript">
 
-                $(document).delegate('#task4', 'pageshow', function() {
+                $(document).delegate('#task4', 'pageshow', function () {
 
                     function submitDataForTask() {
 
                         var circlesToBeFlashed = new Array("2", "3", "5", "6", "4");
                         // set hide counter
                         $(".restCirclesCounter").hide();
-                         $(".restCirclesCounter").html("Noch 5 Kreis(e)");
+                        $(".restCirclesCounter").html("Noch 5 Kreis(e)");
                         // call flashing function
-                        setTimeout(function() {
-                            
+                        setTimeout(function () {
+
                             flashCircles(circlesToBeFlashed, "task4", "hintTask4");
 
                         }, 200);
@@ -1646,8 +1709,8 @@ and open the template in the editor.
             </script>
 
         </div>
-        
-        
+
+
         <!--task 4 repeat page-->
         <div data-role="page" id="task4Repeat" data-dom-cache=true class="whitePage">
 
@@ -1687,7 +1750,7 @@ and open the template in the editor.
 
 
                 </div>
-                
+
                 <!--counter of rest circles-->
                 <div class="restCirclesCounter"> Noch 5 Kreis(e)</div>
 
@@ -1696,17 +1759,17 @@ and open the template in the editor.
 
             <script type="text/javascript">
 
-                $(document).delegate('#task4Repeat', 'pageshow', function() {
+                $(document).delegate('#task4Repeat', 'pageshow', function () {
 
                     function submitDataForTask() {
 
-                        var circlesToBeFlashed = new Array("7", "9","3", "2", "1");
+                        var circlesToBeFlashed = new Array("7", "9", "3", "2", "1");
                         // set hide counter
                         $(".restCirclesCounter").hide();
-                         $(".restCirclesCounter").html("Noch 5 Kreis(e)");
+                        $(".restCirclesCounter").html("Noch 5 Kreis(e)");
                         // call flashing function
-                        setTimeout(function() {
-                            
+                        setTimeout(function () {
+
                             flashCircles(circlesToBeFlashed, "task4Repeat", "hintTask4Repeat");
 
                         }, 200);
@@ -1718,8 +1781,8 @@ and open the template in the editor.
             </script>
 
         </div>
-        
-        
+
+
         <!--task 5 page-->
         <div data-role="page" id="task5" data-dom-cache=true class="whitePage">
 
@@ -1759,7 +1822,7 @@ and open the template in the editor.
 
 
                 </div>
-                
+
                 <!--counter of rest circles-->
                 <div class="restCirclesCounter"> Noch 6 Kreis(e)</div>
 
@@ -1768,17 +1831,17 @@ and open the template in the editor.
 
             <script type="text/javascript">
 
-                $(document).delegate('#task5', 'pageshow', function() {
+                $(document).delegate('#task5', 'pageshow', function () {
 
                     function submitDataForTask() {
 
                         var circlesToBeFlashed = new Array("4", "7", "9", "3", "5", "8");
                         // set hide counter
                         $(".restCirclesCounter").hide();
-                         $(".restCirclesCounter").html("Noch 6 Kreis(e)");
+                        $(".restCirclesCounter").html("Noch 6 Kreis(e)");
                         // call flashing function
-                        setTimeout(function() {
-                            
+                        setTimeout(function () {
+
                             flashCircles(circlesToBeFlashed, "task5", "hintTask5");
 
                         }, 200);
@@ -1790,8 +1853,8 @@ and open the template in the editor.
             </script>
 
         </div>
-        
-        
+
+
         <!--task 2 repeat page-->
         <div data-role="page" id="task5Repeat" data-dom-cache=true class="whitePage">
 
@@ -1831,7 +1894,7 @@ and open the template in the editor.
 
 
                 </div>
-                
+
                 <!--counter of rest circles-->
                 <div class="restCirclesCounter"> Noch 6 Kreis(e)</div>
 
@@ -1840,17 +1903,17 @@ and open the template in the editor.
 
             <script type="text/javascript">
 
-                $(document).delegate('#task5Repeat', 'pageshow', function() {
+                $(document).delegate('#task5Repeat', 'pageshow', function () {
 
                     function submitDataForTask() {
 
-                        var circlesToBeFlashed = new Array("5", "6","8", "4", "1", "7");
+                        var circlesToBeFlashed = new Array("5", "6", "8", "4", "1", "7");
                         // set hide counter
                         $(".restCirclesCounter").hide();
-                         $(".restCirclesCounter").html("Noch 6 Kreis(e)");
+                        $(".restCirclesCounter").html("Noch 6 Kreis(e)");
                         // call flashing function
-                        setTimeout(function() {
-                            
+                        setTimeout(function () {
+
                             flashCircles(circlesToBeFlashed, "task5Repeat", "hintTask5Repeat");
 
                         }, 200);
@@ -1862,12 +1925,12 @@ and open the template in the editor.
             </script>
 
         </div>
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
         <!--end page of the task bildergeschichte-->
         <div data-role="page" id="endPage" data-dom-cache=true class="introPage" >
 
