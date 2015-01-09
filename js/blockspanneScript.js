@@ -217,11 +217,10 @@ function selectCircle(selectedCircle) {
         {
             // get circle id
             var circleId = selectedCircle.id;
-            // get BG color
-            var bgColor = $("#"+circleId).css('backgroundColor');
+            
             
             // check if same circle is clicked twice
-        if(jQuery.inArray(circleId,selectedCircles) !== -1  && jQuery.inArray(circleId,selectedCircles) !== (selectedCircles.length-1)){
+        if((jQuery.inArray(circleId,selectedCircles) !== -1) && ($("#" + circleId).data("selected") === "true")){
             return;
         }
             
@@ -551,6 +550,9 @@ function highlightClickedCircle(circleID) {
     {
         $("#" + circleID).css("background-color", "#ffff00");
         $("#" + circleID).css("border", "3px solid #ffcc00");
+        
+        // change selection status
+        ("#" + circleID).data("selected") === "true";
     }
 
     catch (error) {
@@ -576,6 +578,9 @@ function cleanPreviousSelection(selectedCircleID) {
 
                 $("#" + tempCircId).css("background-color", "#64C463");
                 $("#" + tempCircId).css("border", "3px solid black");
+                
+                // reset selection status
+                $("#" + tempCircId).data("selected") === "false";
 
             }
         }
