@@ -186,7 +186,7 @@ function flashCircles(circlesArray, taskId, taskHintId) {
                     }, 500);
 
                     setTimeout(function () {
-                        $("#" + taskHintId).hide();
+//                        $("#" + taskHintId).hide();
                         // enable selection executing 
                         canSelect = true;
                     }, 800);
@@ -320,42 +320,52 @@ function switchToNextTask(currentPageID) {
     {
         switch (currentPageID) {
             case "task1":
-                $.mobile.changePage('#task2', {transition: "none"});
+                nextTaskPageID = "task2";
+                $.mobile.changePage('#startHint', {transition: "none"});
                 break;
 
             case "task1Repeat":
-                $.mobile.changePage('#task2', {transition: "none"});
+                nextTaskPageID = "task2";
+                $.mobile.changePage('#startHint', {transition: "none"});
                 break;
 
             case "task2":
-                $.mobile.changePage('#task3', {transition: "none"});
+                nextTaskPageID = "task3";
+                $.mobile.changePage('#startHint', {transition: "none"});
                 break;
 
             case "task2Repeat":
-                $.mobile.changePage('#task3', {transition: "none"});
+                nextTaskPageID = "task3";
+                $.mobile.changePage('#startHint', {transition: "none"});
                 break;
 
             case "task3":
-                $.mobile.changePage('#task4', {transition: "none"});
+                nextTaskPageID = "task4";
+                $.mobile.changePage('#startHint', {transition: "none"});
                 break;
 
             case "task3Repeat":
-                $.mobile.changePage('#task4', {transition: "none"});
+                nextTaskPageID = "task4";
+                $.mobile.changePage('#startHint', {transition: "none"});
                 break;
 
             case "task4":
-                $.mobile.changePage('#task5', {transition: "none"});
+                nextTaskPageID = "task5";
+                $.mobile.changePage('#startHint', {transition: "none"});
                 break;
 
             case "task4Repeat":
-                $.mobile.changePage('#task5', {transition: "none"});
+                nextTaskPageID = "task5";
+                $.mobile.changePage('#startHint', {transition: "none"});
                 break;
 
             case "task5":
+                
                 $.mobile.changePage('#endPage', {transition: "none"});
                 break;
 
             case "task5Repeat":
+                
                 $.mobile.changePage('#endPage', {transition: "none"});
                 break;
 
