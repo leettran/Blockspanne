@@ -4,6 +4,7 @@
 
 
 // global variables
+
 var flashedCircles;
 var selectedCircles = new Array();
 var numberOfCirclesToSelect;
@@ -48,6 +49,20 @@ function onShowDemo() {
     try
     {
         $.mobile.changePage('#blockspanneDemo1', {transition: "flip"});
+    }
+
+    catch (error) {
+        console.log("An error has been occured! " + error);
+    }
+
+}
+
+
+// shows the demo example
+function onShowDemoAgain() {
+    try
+    {
+        $.mobile.changePage('#slideToBlockspanneDemo', {transition: "flip"});
     }
 
     catch (error) {
@@ -164,17 +179,17 @@ function flashCircles(circlesArray, taskId, taskHintId) {
                         cleanAllSelections();
                         // show hint text
                         $("#" + taskHintId).html("Tippen Sie die Kreise in umgekehrter Reihenfolge an.");
-                        $("#" + taskHintId).show("slow");
+//                        $("#" + taskHintId).show("slow");
                         // show counter
                         $(".restCirclesCounter").show();
 
-                    }, 1500);
+                    }, 500);
 
                     setTimeout(function () {
                         $("#" + taskHintId).hide();
                         // enable selection executing 
                         canSelect = true;
-                    }, 4500);
+                    }, 800);
                 }
             }, 1500);
         }

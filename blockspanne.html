@@ -105,7 +105,10 @@ and open the template in the editor.
                 <image src="css\images\icons\info.png" class="infoIcon"/>
 
                 <center>
-                    <p class="introText">
+                    
+                    <p class="introTextHeader"> Ein Beispiel  </p>  </br> </br>
+                    <p class="introTextBig">
+                       
                         Achten Sie auf die aufleuchtenden Kreise und ihre Reihenfolge! </br>
                         Tippen Sie die "Weiter" Schaltfläche an, um eine kleine Demonstration zu zeigen.
 
@@ -424,7 +427,7 @@ and open the template in the editor.
                 <image src="css\images\icons\tipp.png" class="infoIcon"/>
 
                 <center>
-                    <p class="introText">
+                    <p class="introTextBig">
                         Später ist es Ihre Aufgabe (wie im folgenden Beispiel), die Kreise in <b>umgekehrter Reihenfolge</b> anzutippen.
 
                     </p>
@@ -706,7 +709,7 @@ and open the template in the editor.
                         Möchten Sie das Beispiel noch einmal sehen?
                     </p>
 
-                    <image src="css\images\btns-bg\bt-weiter.png" class="defaultButtonMiddle" onclick="onShowDemo();"/>
+                    <image src="css\images\btns-bg\bt-weiter.png" class="defaultButtonMiddle" onclick="onShowDemoAgain();"/>
                 </center>
 
             </div>
@@ -722,13 +725,12 @@ and open the template in the editor.
 
                 <image src="css\images\icons\info.png" class="infoIcon"/>
 
-                <p class="introTextHeader">  Ein Probedurchgang   </p>
+                <p class="introTextHeader">  Ein Probedurchgang   </p>  </br>  </br>
                 
                 <center>
-                    <p class="introText">
+                    <p class="introTextBig">
 
-                     
-                        </br>
+ 
                         Merken Sie sich die aufleuchtenden Kreise und ihre Reihenfolge
 
                     </p>
@@ -1108,16 +1110,16 @@ and open the template in the editor.
 
                     function showJustForWhile() {
                         // show hint
-                        $("#hint2").show();
+//                        $("#hint2").show();
                         
                         
                         setTimeout(function () {
 
-                            $("#hint2").hide();
+//                            $("#hint2").hide();
                             $(".restCirclesCounter").html("Noch 2 Kreis(e)");
                             toggleCanSelectBool(true);
 
-                        }, 1500);
+                        }, 300);
 
                     }
 
@@ -1162,7 +1164,7 @@ and open the template in the editor.
                 <image src="css\images\icons\tipp.png" class="infoIcon"/>
 
                 <center>
-                    <p class="introText">
+                    <p class="introTextBig">
                         <b> Gut gemacht!</b> </br>
                         Starten Sie nun mit der eigentlichen Aufgabe.
 
@@ -1186,7 +1188,7 @@ and open the template in the editor.
                 <image src="css\images\icons\info.png" class="infoIcon"/>
 
                 <center>
-                    <p class="introText">
+                    <p class="introTextBig">
                         <b> Merken Sie sich die aufleuchtenden Blöcke und ihre Reihenfolge!</b> </br>
 
 
