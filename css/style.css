@@ -17,7 +17,7 @@
         position: absolute;
         width: 100px;
         height: 100px;
-        border: 2px solid black;
+        border: 3px solid black;
         text-align: center;
         border-radius: 50%;
         display: table;
@@ -45,7 +45,7 @@
         position: absolute;
         width: 100px;
         height: 100px;
-        border: 2px solid #ffcc00;
+        border: 3px solid #ffcc00;
         text-align: center;
         border-radius: 50%;
         display: table;

@@ -217,10 +217,9 @@ function selectCircle(selectedCircle) {
         {
             // get circle id
             var circleId = selectedCircle.id;
-            // get current background color
-            var circleBg = $("#" + circleId).css("background-color");
+            
             // check if same circle is clicked twice
-        if((jQuery.inArray(circleId,selectedCircles) !== -1) && circleBg === "#ffff00"){
+        if(jQuery.inArray(circleId,selectedCircles) !== -1){
             return;
         }
             
