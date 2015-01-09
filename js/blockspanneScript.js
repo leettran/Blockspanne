@@ -284,6 +284,9 @@ function selectCircle(selectedCircle) {
 
                         // disable selection
                         canSelect = false;
+                        // reset repetition flag
+                        if (!taskWillRepeat)
+                            taskWillRepeat = true;
                         // reset all circles
                         cleanAllSelections();
                         // empty selected circles
