@@ -217,8 +217,10 @@ function selectCircle(selectedCircle) {
         {
             // get circle id
             var circleId = selectedCircle.id;
+            // get current background color
+            var circleBg = $("#" + circleId).css("background-color");
             // check if same circle is clicked twice
-        if((jQuery.inArray(circleId,selectedCircles) !== -1) && ($("#"+circleId).attr("class") === "kreisSelected")){
+        if((jQuery.inArray(circleId,selectedCircles) !== -1) && circleBg === "#ffff00"){
             return;
         }
             
@@ -547,7 +549,7 @@ function highlightClickedCircle(circleID) {
     try
     {
         $("#" + circleID).css("background-color", "#ffff00");
-        $("#" + circleID).css("border", "1px solid #ffcc00");
+        $("#" + circleID).css("border", "3px solid #ffcc00");
     }
 
     catch (error) {
@@ -572,7 +574,7 @@ function cleanPreviousSelection(selectedCircleID) {
             if (tempCircId !== selectedCircleID) {
 
                 $("#" + tempCircId).css("background-color", "#64C463");
-                $("#" + tempCircId).css("border", "1px solid black");
+                $("#" + tempCircId).css("border", "3px solid black");
 
             }
         }
