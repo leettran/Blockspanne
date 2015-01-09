@@ -218,7 +218,7 @@ function selectCircle(selectedCircle) {
             // get circle id
             var circleId = selectedCircle.id;
             // check if same circle is clicked twice
-        if(jQuery.inArray(circleId,selectedCircles) !== -1){
+        if((jQuery.inArray(circleId,selectedCircles) !== -1) && ($("#"+circleId).attr("class") === "kreisSelected")){
             return;
         }
             
