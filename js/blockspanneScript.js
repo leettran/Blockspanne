@@ -217,9 +217,11 @@ function selectCircle(selectedCircle) {
         {
             // get circle id
             var circleId = selectedCircle.id;
+            // get BG color
+            var bgColor = $("#"+circleId).css('backgroundColor');
             
             // check if same circle is clicked twice
-        if(jQuery.inArray(circleId,selectedCircles) !== -1){
+        if(jQuery.inArray(circleId,selectedCircles) !== -1  && bgColor !== "#64C463"){
             return;
         }
             
@@ -599,7 +601,7 @@ function cleanPreviousSelectionTrial(selectedCircleID) {
             if (tempCircId !== selectedCircleID) {
 
                 $("#" + tempCircId).css("background-color", "#64C463");
-                $("#" + tempCircId).css("border", "1px solid black");
+                $("#" + tempCircId).css("border", "3px solid black");
 
             }
         }
@@ -623,7 +625,7 @@ function cleanAllSelectionsTrial() {
             var tempCircId = tempCirc.id;
 
             $("#" + tempCircId).css("background-color", "#64C463");
-            $("#" + tempCircId).css("border", "1px solid black");
+            $("#" + tempCircId).css("border", "3px solid black");
 
         }
     }
@@ -646,7 +648,7 @@ function cleanAllSelections() {
             var tempCircId = tempCirc.id;
 
             $("#" + tempCircId).css("background-color", "#64C463");
-            $("#" + tempCircId).css("border", "1px solid black");
+            $("#" + tempCircId).css("border", "3px solid black");
 
         }
     }
