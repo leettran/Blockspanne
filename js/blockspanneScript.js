@@ -220,8 +220,11 @@ function selectCircle(selectedCircle) {
             
             
             // check if same circle is clicked twice
-        if((jQuery.inArray(circleId,selectedCircles) !== -1) && ($("#" + circleId).data("selected") === "true")){
+        if(jQuery.inArray(circleId,selectedCircles) !== -1){
+            
+            if ($("#" + circleId).data("selected") === "true")
             return;
+        
         }
             
             
@@ -552,6 +555,7 @@ function highlightClickedCircle(circleID) {
         $("#" + circleID).css("border", "3px solid #ffcc00");
         
         // change selection status
+        if (("#" + circleID).data("selected")!==null)
         ("#" + circleID).data("selected") === "true";
     }
 
@@ -580,6 +584,7 @@ function cleanPreviousSelection(selectedCircleID) {
                 $("#" + tempCircId).css("border", "3px solid black");
                 
                 // reset selection status
+                if ($("#" + tempCircId).data("selected")!==null)
                 $("#" + tempCircId).data("selected") === "false";
 
             }
@@ -607,6 +612,10 @@ function cleanPreviousSelectionTrial(selectedCircleID) {
 
                 $("#" + tempCircId).css("background-color", "#64C463");
                 $("#" + tempCircId).css("border", "3px solid black");
+                
+                // reset selection status
+                if ($("#" + tempCircId).data("selected")!==null)
+                $("#" + tempCircId).data("selected") === "false";
 
             }
         }
@@ -631,6 +640,10 @@ function cleanAllSelectionsTrial() {
 
             $("#" + tempCircId).css("background-color", "#64C463");
             $("#" + tempCircId).css("border", "3px solid black");
+            
+            // reset selection status
+                if ($("#" + tempCircId).data("selected")!==null)
+                $("#" + tempCircId).data("selected") === "false";
 
         }
     }
@@ -654,6 +667,10 @@ function cleanAllSelections() {
 
             $("#" + tempCircId).css("background-color", "#64C463");
             $("#" + tempCircId).css("border", "3px solid black");
+            
+            // reset selection status
+                if ($("#" + tempCircId).data("selected")!==null)
+                $("#" + tempCircId).data("selected") === "false";
 
         }
     }
