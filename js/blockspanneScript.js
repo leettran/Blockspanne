@@ -221,7 +221,7 @@ function selectCircle(selectedCircle) {
             var bgColor = $("#"+circleId).css('backgroundColor');
             
             // check if same circle is clicked twice
-        if(jQuery.inArray(circleId,selectedCircles) !== -1  && bgColor !== "#64C463"){
+        if(jQuery.inArray(circleId,selectedCircles) !== -1  && jQuery.inArray(circleId,selectedCircles) !== (selectedCircles.length-1)){
             return;
         }
             
