@@ -218,14 +218,18 @@ function selectCircle(selectedCircle) {
             // get circle id
             var circleId = selectedCircle.id;
             
-            
             // check if same circle is clicked twice
-        if(jQuery.inArray(circleId,selectedCircles) !== -1){
-            
-            if ($("#" + circleId).data("selected") === "true")
-            return;
+//        if(jQuery.inArray(circleId,selectedCircles) !== -1){
+//            return;
+//        }
         
+        // check if same element is double clicked (allows selecting item again after selecting another one)
+        if(jQuery.inArray(circleId,selectedCircles) === selectedCircles.length -1 && selectedCircles.length!==0){
+            return;
         }
+        
+        
+        //
             
             
             // increment number of selected circles
@@ -414,10 +418,18 @@ function selectCircleTrial(selectedCircle) {
         // get circle id
         var circleId = selectedCircle.id;
         
-        // check if same circle is clicked twice
+        // check if same circle is double clicked 
         if(jQuery.inArray(circleId,selectedCircles) !== -1){
             return;
         }
+        
+        // test
+//        if(jQuery.inArray(circleId,selectedCircles) === selectedCircles.length -1){
+//            return;
+//        }
+//        
+        
+        //
 
         // increment number of selected circles
         numberOfSelectedCircles++;
@@ -553,10 +565,6 @@ function highlightClickedCircle(circleID) {
     {
         $("#" + circleID).css("background-color", "#ffff00");
         $("#" + circleID).css("border", "3px solid #ffcc00");
-        
-        // change selection status
-        if (("#" + circleID).data("selected")!==null)
-        ("#" + circleID).data("selected") === "true";
     }
 
     catch (error) {
@@ -582,10 +590,6 @@ function cleanPreviousSelection(selectedCircleID) {
 
                 $("#" + tempCircId).css("background-color", "#64C463");
                 $("#" + tempCircId).css("border", "3px solid black");
-                
-                // reset selection status
-                if ($("#" + tempCircId).data("selected")!==null)
-                $("#" + tempCircId).data("selected") === "false";
 
             }
         }
@@ -612,10 +616,6 @@ function cleanPreviousSelectionTrial(selectedCircleID) {
 
                 $("#" + tempCircId).css("background-color", "#64C463");
                 $("#" + tempCircId).css("border", "3px solid black");
-                
-                // reset selection status
-                if ($("#" + tempCircId).data("selected")!==null)
-                $("#" + tempCircId).data("selected") === "false";
 
             }
         }
@@ -640,10 +640,6 @@ function cleanAllSelectionsTrial() {
 
             $("#" + tempCircId).css("background-color", "#64C463");
             $("#" + tempCircId).css("border", "3px solid black");
-            
-            // reset selection status
-                if ($("#" + tempCircId).data("selected")!==null)
-                $("#" + tempCircId).data("selected") === "false";
 
         }
     }
@@ -667,10 +663,6 @@ function cleanAllSelections() {
 
             $("#" + tempCircId).css("background-color", "#64C463");
             $("#" + tempCircId).css("border", "3px solid black");
-            
-            // reset selection status
-                if ($("#" + tempCircId).data("selected")!==null)
-                $("#" + tempCircId).data("selected") === "false";
 
         }
     }
