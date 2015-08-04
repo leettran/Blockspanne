@@ -12,6 +12,7 @@ and open the template in the editor.
         version   = "1.0.0">
     <name>Blockspanne</name>    
     <preference name="orientation" value="landscape" /> 
+   <preference name="DisallowOverscroll" value="true" />
     <preference name="fullscreen" value="true" />
     <preference name="loglevel" value="DEBUG" />     
     <description>
